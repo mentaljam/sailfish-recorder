@@ -23,7 +23,7 @@ import "pages"
 
 ApplicationWindow
 {
-
+    property int time: 0;
     Recorder {
         id: recorder
     }

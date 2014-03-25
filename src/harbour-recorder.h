@@ -13,12 +13,13 @@ public:
     explicit Recorder(QObject* parent = 0) ;
     ~Recorder() {}
     bool recording;
-    Q_INVOKABLE void startRecording();
     Q_INVOKABLE void stopRecording();
+    Q_INVOKABLE void setLocation(QString);
     Q_INVOKABLE bool isRecording();
-    Q_INVOKABLE bool setLocation(QString);
+    Q_INVOKABLE QString startRecording();
     Q_INVOKABLE QString getLocation();
 signals:
+    void pathCreationFailed();
     void recordingChanged();
 };
 

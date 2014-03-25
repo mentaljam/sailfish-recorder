@@ -50,17 +50,27 @@ bool Recorder::isRecording() {
     return recording;
 }
 
-void Recorder::startRecording() {
+QString Recorder::startRecording() {
     if(audioRecorder->state() == QMediaRecorder::StoppedState) {
         qWarning() << " === Recording started ===";
         QDateTime currentDate = QDateTime::currentDateTime();
 
         QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + ".wav";
+
+        if(!QDir(getLocation()).exists()) {
+            bool madeDirs = QDir().mkpath(getLocation());
+            if(!madeDirs) {
+                return "nofolder";
+            }
+        }
+
         audioRecorder->setOutputLocation(QUrl(location));
         audioRecorder->record();
         recording = true;
         emit recordingChanged();
+        return "recording";
     }
+    return "recording";
 }
 
 
@@ -74,16 +84,12 @@ void Recorder::stopRecording() {
     // }
 }
 
-bool Recorder::setLocation(QString location) {
+void Recorder::setLocation(QString location) {
     QSettings settings;
-    if(QUrl(location).isValid()) {
-        settings.setValue("recorder/fileLocation", location);
-        return true;
-    }
-    return false;
+    settings.setValue("recorder/fileLocation", location);
 }
 
 QString Recorder::getLocation() {
     QSettings settings;
-    return settings.value("recorder/fileLocation", "/home/nemo/Music").toString();
+    return settings.value("recorder/fileLocation",  QDir::homePath() + "/Recordings").toString();
 }

@@ -35,7 +35,12 @@ CoverBackground {
                 if(recorder.isRecording) {
                     recorder.stopRecording()
                 } else {
-                    recorder.startRecording()
+                    var msg = recorder.startRecording();
+                    if(msg === "recording") {
+                        errorTxt.text = "";
+                        recordBtn.source = "../stop.png"
+                        recordTxt.text = "Stop Recording"
+                    }
                 }
             }
         }

@@ -54,22 +54,43 @@ Page {
                     source: "../record.png"
                     opacity: region.pressed ? 0.7 : 1
                 }
+                Timer {
+                    id: timer
+                    interval: 1000;
+                    running: false;
+                    repeat: true;
+                    onTriggered: {
+                        time++;
+                        var minutes = Math.floor(time/60);
+                        var seconds = time - minutes * 60;
+                        recordTxt.text = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds)
+                    }
+                }
+
                 MouseArea {
                     id: region
                     anchors.fill: parent
                     onClicked: {
                         if(recorder.isRecording) {
                             recordBtn.source = "../record.png"
-                            recordTxt.text = "Start Recording"
                             recorder.stopRecording();
+                            timer.stop();
+                            time = 0;
                         } else {
-                            recordBtn.source = "../stop.png"
-                            recordTxt.text = "Stop Recording"
-                            recorder.startRecording();
+                            var msg = recorder.startRecording();
+                            if(msg === "recording") {
+                                errorTxt.text = "";
+                                recordBtn.source = "../stop.png"
+                                recordTxt.text = "0:00"
+                                timer.start();
+                            } else if(msg === "nofolder") {
+                                errorTxt.text = "Couldn't create \"" + recorder.getLocation() + "\"";
+                            }
                         }
                     }
                 }
             }
+
             Label {
                 id: recordTxt
                 x: Theme.paddingLarge
@@ -78,6 +99,16 @@ Page {
                 text: "Start Recording"
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge
+                font.family: "monospace"
+            }
+
+            Label {
+                id: errorTxt
+                x: Theme.paddingLarge
+                width: parent.width - (Theme.paddingLarge*2)
+                wrapMode: Text.WordWrap;
+                text: "";
+                color: Theme.highlightColor
             }
         }
     }
