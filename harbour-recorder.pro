@@ -6,25 +6,25 @@
 #         - desktop icon filename must be changed
 #         - desktop filename must be changed
 #         - icon definition filename in desktop file must be changed
-TARGET = Recorder
+TARGET = harbour-recorder
 
 CONFIG += sailfishapp
 
-SOURCES += src/Recorder.cpp
+SOURCES += src/harbour-recorder.cpp
 
-OTHER_FILES += qml/Recorder.qml \
+OTHER_FILES += \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    rpm/Recorder.spec \
-    rpm/Recorder.yaml \
-    Recorder.desktop \
-    img/stop.png \
-    img/record.png \
-    qml/pages/Settings.qml
+    rpm/harbour-recorder.spec \
+    rpm/harbour-recorder.yaml \
+    harbour-recorder.desktop \
+    qml/stop.png \
+    qml/record.png \
+    qml/pages/Settings.qml \
+    qml/harbour-recorder.qml
 
 HEADERS += \
-    src/recorder.h
+    src/harbour-recorder.h
 
 QT +=\
     multimedia
-

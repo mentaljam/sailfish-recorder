@@ -17,7 +17,7 @@
 */
 
 #include <QtQuick>
-#include "recorder.h"
+#include "harbour-recorder.h"
 #include <sailfishapp.h>
 
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     //
     // To display the view, call "show()" (will show fullscreen on device).
 
-    qmlRegisterType<Recorder>("nl.corne.recorder", 1, 0, "Recorder");
+    qmlRegisterType<Recorder>("harbour.recorder.Recorder", 1, 0, "Recorder");
 
     return SailfishApp::main(argc, argv);
 }

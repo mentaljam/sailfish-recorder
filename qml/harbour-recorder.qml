@@ -18,7 +18,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import nl.corne.recorder 1.0
+import harbour.recorder.Recorder 1.0
 import "pages"
 
 ApplicationWindow
