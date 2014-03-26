@@ -23,9 +23,24 @@ import "pages"
 
 ApplicationWindow
 {
+    property string timestamp: "Start recording";
     property int time: 0;
+
     Recorder {
         id: recorder
+    }
+
+    Timer {
+        id: timer
+        interval: 1000;
+        running: false;
+        repeat: true;
+        onTriggered: {
+            time++;
+            var minutes = Math.floor(time/60);
+            var seconds = time - minutes * 60;
+            timestamp = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds)
+        }
     }
 
     initialPage: Component { FirstPage { } }

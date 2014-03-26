@@ -51,20 +51,8 @@ Page {
                     anchors.centerIn: parent
                     height: 172
                     width: 172
-                    source: "../record.png"
+                    source: recorder.isRecording ? "../stop.png" : "../record.png"
                     opacity: region.pressed ? 0.7 : 1
-                }
-                Timer {
-                    id: timer
-                    interval: 1000;
-                    running: false;
-                    repeat: true;
-                    onTriggered: {
-                        time++;
-                        var minutes = Math.floor(time/60);
-                        var seconds = time - minutes * 60;
-                        recordTxt.text = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds)
-                    }
                 }
 
                 MouseArea {
@@ -72,7 +60,6 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                         if(recorder.isRecording) {
-                            recordBtn.source = "../record.png"
                             recorder.stopRecording();
                             timer.stop();
                             time = 0;
@@ -80,8 +67,7 @@ Page {
                             var msg = recorder.startRecording();
                             if(msg === "recording") {
                                 errorTxt.text = "";
-                                recordBtn.source = "../stop.png"
-                                recordTxt.text = "0:00"
+                                timestamp = "0:00";
                                 timer.start();
                             } else if(msg === "nofolder") {
                                 errorTxt.text = "Couldn't create \"" + recorder.getLocation() + "\"";
@@ -96,7 +82,7 @@ Page {
                 x: Theme.paddingLarge
                 width: parent.width - (Theme.paddingLarge*2)
                 horizontalAlignment: Text.AlignHCenter
-                text: "Start Recording"
+                text: timestamp
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge
                 font.family: "monospace"

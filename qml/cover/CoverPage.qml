@@ -33,13 +33,14 @@ CoverBackground {
             iconSource: recorder.isRecording ? "image://theme/icon-cover-cancel" : "image://theme/icon-cover-new"
             onTriggered: {
                 if(recorder.isRecording) {
-                    recorder.stopRecording()
+                    recorder.stopRecording();
+                    timer.stop();
+                    time = 0;
                 } else {
                     var msg = recorder.startRecording();
                     if(msg === "recording") {
-                        errorTxt.text = "";
-                        recordBtn.source = "../stop.png"
-                        recordTxt.text = "Stop Recording"
+                        timestamp = "0:00";
+                        timer.start();
                     }
                 }
             }
