@@ -23,7 +23,15 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: recorder.isRecording ? "Stop" : "Record"
+        text: {
+            if(recorder.recordingState === 0) {
+                return "Record"
+            } else if(recorder.recordingState === 1) {
+                return "Stop";
+            } else if(recorder.recordingState === 2) {
+                return "Resume";
+            }
+        }
     }
 
     CoverActionList {
@@ -42,6 +50,9 @@ CoverBackground {
                         timestamp = "0:00";
                         timer.start();
                     }
+                } else if(recorder.recordingState === 2) {
+                    recorder.resumeRecording();
+                    timer.start();
                 }
             }
         }
