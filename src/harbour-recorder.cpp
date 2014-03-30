@@ -50,6 +50,18 @@ int Recorder::recordingState() {
     return curRecordingState;
 }
 
+QStringList Recorder::getExistingFiles() {
+    QDir dir(getLocation());
+    dir.setSorting(QDir::Time);
+    dir.setFilter(QDir::Files);
+    QStringList list = dir.entryList();
+    return list;
+}
+
+void Recorder::removeFile(QString filename) {
+    QFile(getLocation() + "/" + filename).remove();
+}
+
 QString Recorder::startRecording() {
     if(audioRecorder->state() == QMediaRecorder::StoppedState) {
         qWarning() << " === Recording started ===";

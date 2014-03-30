@@ -17,9 +17,11 @@ public:
     Q_INVOKABLE void resumeRecording();
     Q_INVOKABLE void stopRecording();
     Q_INVOKABLE void setLocation(QString);
+    Q_INVOKABLE void removeFile(QString);
     Q_INVOKABLE int recordingState();
     Q_INVOKABLE QString startRecording();
     Q_INVOKABLE QString getLocation();
+    Q_INVOKABLE QStringList getExistingFiles();
 signals:
     void pathCreationFailed();
     void recordingChanged();
