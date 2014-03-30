@@ -101,14 +101,6 @@ Page {
                         drawer.refreshRecordingsList();
                     }
                 }
-                MenuItem {
-                    text: "Add Items"
-                    onClicked: {
-                        for (var index = 0; index < 5; index++) {
-                            recordingsModel.append({"text": "Recording " + index});
-                        }
-                    }
-                }
             }
 
             ListModel {
