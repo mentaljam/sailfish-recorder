@@ -21,7 +21,8 @@ OTHER_FILES += \
     qml/stop.png \
     qml/record.png \
     qml/pages/Settings.qml \
-    qml/harbour-recorder.qml
+    qml/harbour-recorder.qml \
+    qml/util/Popup.qml
 
 HEADERS += \
     src/harbour-recorder.h

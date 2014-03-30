@@ -30,13 +30,13 @@ CoverBackground {
         id: coverAction
 
         CoverAction {
-            iconSource: recorder.isRecording ? "image://theme/icon-cover-cancel" : "image://theme/icon-cover-new"
+            iconSource: recorder.recordingState === 1 ? "image://theme/icon-cover-cancel" : "image://theme/icon-cover-new"
             onTriggered: {
-                if(recorder.isRecording) {
+                if(recorder.recordingState === 1) {
                     recorder.stopRecording();
                     timer.stop();
                     time = 0;
-                } else {
+                } else if(recorder.recordingState === 0) {
                     var msg = recorder.startRecording();
                     if(msg === "recording") {
                         timestamp = "0:00";

@@ -43,11 +43,11 @@ Recorder::Recorder(QObject *parent) : QObject(parent) {
     QCoreApplication::setApplicationName("Recorder");
 
     audioRecorder = new QAudioRecorder(this);
-    recording = false;
+    curRecordingState = 0;
 }
 
-bool Recorder::isRecording() {
-    return recording;
+int Recorder::recordingState() {
+    return curRecordingState;
 }
 
 QString Recorder::startRecording() {
@@ -66,7 +66,7 @@ QString Recorder::startRecording() {
 
         audioRecorder->setOutputLocation(QUrl(location));
         audioRecorder->record();
-        recording = true;
+        curRecordingState = 1;
         emit recordingChanged();
         return "recording";
     }
@@ -74,12 +74,24 @@ QString Recorder::startRecording() {
 }
 
 
+void Recorder::pauseRecording() {
+    curRecordingState = 2;
+    audioRecorder->pause();
+    emit recordingChanged();
+}
+
+void Recorder::resumeRecording() {
+    curRecordingState = 1;
+    audioRecorder->record();
+    emit recordingChanged();
+}
+
 void Recorder::stopRecording() {
     // doesnt work in cover?
     // if(audioRecorder->state() == QMediaRecorder::RecordingState) {
     qWarning() << " === Recording stopped ===";
     audioRecorder->stop();
-    recording = false;
+    curRecordingState = 0;
     emit recordingChanged();
     // }
 }
