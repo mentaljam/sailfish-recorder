@@ -62,12 +62,19 @@ void Recorder::removeFile(QString filename) {
     QFile(getLocation() + "/" + filename).remove();
 }
 
+void Recorder::renameFile(QString oldFilename, QString newFilename) {
+    QFile(getLocation() + "/" + oldFilename).rename(getLocation() + "/" + newFilename);
+}
+
 QString Recorder::startRecording() {
     if(audioRecorder->state() == QMediaRecorder::StoppedState) {
-        qWarning() << " === Recording started ===";
+        QSettings qsettings;
         QDateTime currentDate = QDateTime::currentDateTime();
 
-        QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + ".wav";
+        QString extention = qsettings.value("recorder/extension", ".wav").toString();
+        QString codec = qsettings.value("recorder/codec", "audio/PCM").toString();
+
+        QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + extention;
 
         if(!QDir(getLocation()).exists()) {
             bool madeDirs = QDir().mkpath(getLocation());
@@ -76,6 +83,14 @@ QString Recorder::startRecording() {
             }
         }
 
+        QAudioEncoderSettings settings;
+        settings.setCodec(codec);
+        settings.setEncodingMode(QMultimedia::ConstantBitRateEncoding);
+        settings.setQuality(QMultimedia::HighQuality);
+
+        audioRecorder->setAudioInput("pulseaudio:");
+
+        audioRecorder->setEncodingSettings(settings);
         audioRecorder->setOutputLocation(QUrl(location));
         audioRecorder->record();
         curRecordingState = 1;
@@ -98,13 +113,18 @@ void Recorder::resumeRecording() {
     emit recordingChanged();
 }
 
-void Recorder::stopRecording() {
-    // doesnt work in cover?
-    // if(audioRecorder->state() == QMediaRecorder::RecordingState) {
-    qWarning() << " === Recording stopped ===";
+void Recorder::stopRecordingDelayed() {
     audioRecorder->stop();
     curRecordingState = 0;
     emit recordingChanged();
+}
+
+void Recorder::stopRecording() {
+    // doesnt work in cover?
+    // if(audioRecorder->state() == QMediaRecorder::RecordingState) {
+
+    QTimer::singleShot(1000, this, SLOT(stopRecordingDelayed()));
+
     // }
 }
 
@@ -116,4 +136,27 @@ void Recorder::setLocation(QString location) {
 QString Recorder::getLocation() {
     QSettings settings;
     return settings.value("recorder/fileLocation",  QDir::homePath() + "/Recordings").toString();
+}
+
+void Recorder::setCodec(QString codec, int index) {
+    QSettings settings;
+    settings.setValue("recorder/codecindex", index);
+    if(codec.compare("Vorbis") == 0) {
+        settings.setValue("recorder/codec", "audio/vorbis");
+        settings.setValue("recorder/extension", ".ogg");
+    } else if(codec.compare("Speex") == 0) {
+        settings.setValue("recorder/codec", "audio/speex");
+        settings.setValue("recorder/extension", ".spx");
+    } else if(codec.compare("FLAC") == 0) {
+        settings.setValue("recorder/codec", "audio/FLAC");
+        settings.setValue("recorder/extension", ".flac");
+    } else {
+        settings.setValue("recorder/codec", "audio/PCM");
+        settings.setValue("recorder/extension", ".wav");
+    }
+}
+
+int Recorder::getCodecIndex() {
+    QSettings settings;
+    return settings.value("recorder/codecindex", 2).toInt();
 }

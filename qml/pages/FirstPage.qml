@@ -127,6 +127,7 @@ Page {
                 ListView.onRemove: animateRemoval()
 
                 Label {
+                    id: filenameLabel
                     x: Theme.paddingLarge
                     text: model.text
                     anchors.verticalCenter: parent.verticalCenter
@@ -140,8 +141,42 @@ Page {
                             text: "Delete"
                             onClicked: remove()
                         }
+                        MenuItem {
+                            text: "Rename"
+                            onClicked: pageStack.push(renameDialog)
+                        }
                     }
                 }
+
+                Component {
+                    id: renameDialog
+                    Dialog {
+                        width: page.width
+                        canAccept: true
+
+                        onAcceptPendingChanged: {
+                            if(acceptPending) {
+                                recorder.renameFile(model.text, newFilename.text);
+                                drawer.refreshRecordingsList();
+                            }
+                        }
+
+                        Column {
+                            width: parent.width - Theme.paddingLarge * 2
+                            x: Theme.paddingLarge
+                            PageHeader {
+                                title: "Rename File"
+                            }
+                            TextField {
+                                width: parent.width
+                                id: newFilename
+                                label: "New filename"
+                                text: model.text
+                            }
+                        }
+                    }
+                }
+
             }
         }
         SilicaFlickable {
