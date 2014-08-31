@@ -73,6 +73,17 @@ QString Recorder::startRecording() {
 
         QString extention = qsettings.value("recorder/extension", ".wav").toString();
         QString codec = qsettings.value("recorder/codec", "audio/PCM").toString();
+        QString container = qsettings.value("recorder/container", "notset").toString();
+
+        // We don't want to force users to reselect their codec, so add a little test
+        if(container == "notset") {
+            if(extention == ".ogg") container = "ogg";
+            else if(extention == ".spx") container = "ogg";
+            else if(extention == ".flac") container = "raw";
+            else if(extention == ".wav") container = "wav";
+        }
+
+
 
         QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + extention;
 
@@ -89,9 +100,10 @@ QString Recorder::startRecording() {
         settings.setQuality(QMultimedia::HighQuality);
 
         audioRecorder->setAudioInput("pulseaudio:");
-
         audioRecorder->setEncodingSettings(settings);
         audioRecorder->setOutputLocation(QUrl(location));
+        audioRecorder->setContainerFormat(container);
+
         audioRecorder->record();
         curRecordingState = 1;
         emit recordingChanged();
@@ -144,15 +156,19 @@ void Recorder::setCodec(QString codec, int index) {
     if(codec.compare("Vorbis") == 0) {
         settings.setValue("recorder/codec", "audio/vorbis");
         settings.setValue("recorder/extension", ".ogg");
+        settings.setValue("recorder/container", "ogg");
     } else if(codec.compare("Speex") == 0) {
         settings.setValue("recorder/codec", "audio/speex");
         settings.setValue("recorder/extension", ".spx");
+        settings.setValue("recorder/container", "ogg");
     } else if(codec.compare("FLAC") == 0) {
         settings.setValue("recorder/codec", "audio/FLAC");
         settings.setValue("recorder/extension", ".flac");
+        settings.setValue("recorder/container", "raw");
     } else {
         settings.setValue("recorder/codec", "audio/PCM");
         settings.setValue("recorder/extension", ".wav");
+        settings.setValue("recorder/container", "wav");
     }
 }
 
