@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 }
 
 Recorder::Recorder(QObject *parent) : QObject(parent) {
-    QCoreApplication::setOrganizationName("corne.info");
+    QCoreApplication::setOrganizationName("harbour-recorder");
     QCoreApplication::setOrganizationDomain("www.corne.info");
     QCoreApplication::setApplicationName("Recorder");
 
