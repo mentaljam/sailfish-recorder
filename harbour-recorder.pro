@@ -18,13 +18,14 @@ SOURCES += \
     src/directorymodel.cpp
 
 OTHER_FILES += \
+    qml/harbour-recorder.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
     qml/pages/Settings.qml \
-    qml/harbour-recorder.qml \
     qml/pages/RenameDialog.qml \
     qml/pages/LocationPage.qml \
     qml/pages/NewDirectoryPage.qml \
+    qml/pages/Share.qml \
     qml/components/RecordingPlayer.qml \
     qml/components/RecordingDelegate.qml \
     rpm/harbour-recorder.spec \

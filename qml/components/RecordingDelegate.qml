@@ -20,6 +20,14 @@ ListItem {
                 })
             }
         }
+
+        MenuItem {
+            text: qsTr("Share")
+            onClicked: pageStack.push(Qt.resolvedUrl("../pages/Share.qml"), {
+                                          title: fileName,
+                                          path: filePath
+                                      })
+        }
     }
 
     ListView.onRemove: animateRemoval()
