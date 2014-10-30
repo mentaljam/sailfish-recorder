@@ -44,6 +44,11 @@ Recorder::Recorder(QObject *parent) : QObject(parent) {
 
     audioRecorder = new QAudioRecorder(this);
     curRecordingState = 0;
+
+    codecSettingsMap.insert("Vorbis", CodecSetting("audio/vorbis", ".ogg", "ogg"));
+    codecSettingsMap.insert("Speex", CodecSetting("audio/speex", ".oga", "ogg"));
+    codecSettingsMap.insert("FLAC", CodecSetting("audio/FLAC", ".flac", "raw"));
+    codecSettingsMap.insert("PCM", CodecSetting("audio/PCM", ".wav", "wav"));
 }
 
 int Recorder::recordingState() {
@@ -70,22 +75,10 @@ QString Recorder::startRecording() {
     if(audioRecorder->state() == QMediaRecorder::StoppedState) {
         QSettings qsettings;
         QDateTime currentDate = QDateTime::currentDateTime();
+        QString selectedCodec = qsettings.value("recorder/codecname").toString();
+        CodecSetting codec = codecSettingsMap.value(selectedCodec);
 
-        QString extention = qsettings.value("recorder/extension", ".wav").toString();
-        QString codec = qsettings.value("recorder/codec", "audio/PCM").toString();
-        QString container = qsettings.value("recorder/container", "notset").toString();
-
-        // We don't want to force users to reselect their codec, so add a little test
-        if(container == "notset") {
-            if(extention == ".ogg") container = "ogg";
-            else if(extention == ".spx") container = "ogg";
-            else if(extention == ".flac") container = "raw";
-            else if(extention == ".wav") container = "wav";
-        }
-
-
-
-        QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + extention;
+        QString location = getLocation() + "/recording-" + currentDate.toString("yyyyMMddHHmmss") + codec.getExtension();
 
         if(!QDir(getLocation()).exists()) {
             bool madeDirs = QDir().mkpath(getLocation());
@@ -95,14 +88,14 @@ QString Recorder::startRecording() {
         }
 
         QAudioEncoderSettings settings;
-        settings.setCodec(codec);
-        settings.setEncodingMode(QMultimedia::ConstantBitRateEncoding);
+        settings.setCodec(codec.getCodec());
+        settings.setEncodingMode(QMultimedia::TwoPassEncoding);
         settings.setQuality(QMultimedia::HighQuality);
 
         audioRecorder->setAudioInput("pulseaudio:");
         audioRecorder->setEncodingSettings(settings);
         audioRecorder->setOutputLocation(QUrl(location));
-        audioRecorder->setContainerFormat(container);
+        audioRecorder->setContainerFormat(codec.getContainer());
 
         audioRecorder->record();
         curRecordingState = 1;
@@ -153,23 +146,7 @@ QString Recorder::getLocation() {
 void Recorder::setCodec(QString codec, int index) {
     QSettings settings;
     settings.setValue("recorder/codecindex", index);
-    if(codec.compare("Vorbis") == 0) {
-        settings.setValue("recorder/codec", "audio/vorbis");
-        settings.setValue("recorder/extension", ".ogg");
-        settings.setValue("recorder/container", "ogg");
-    } else if(codec.compare("Speex") == 0) {
-        settings.setValue("recorder/codec", "audio/speex");
-        settings.setValue("recorder/extension", ".spx");
-        settings.setValue("recorder/container", "ogg");
-    } else if(codec.compare("FLAC") == 0) {
-        settings.setValue("recorder/codec", "audio/FLAC");
-        settings.setValue("recorder/extension", ".flac");
-        settings.setValue("recorder/container", "raw");
-    } else {
-        settings.setValue("recorder/codec", "audio/PCM");
-        settings.setValue("recorder/extension", ".wav");
-        settings.setValue("recorder/container", "wav");
-    }
+    settings.setValue("recorder/codecname", codec);
 }
 
 int Recorder::getCodecIndex() {

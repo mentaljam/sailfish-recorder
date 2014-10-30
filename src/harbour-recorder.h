@@ -2,6 +2,7 @@
 #define RECORDER_H
 
 #include <QtMultimedia/QAudioRecorder>
+#include "codecsetting.h"
 
 
 class Recorder : public QObject {
@@ -9,6 +10,7 @@ class Recorder : public QObject {
     Q_PROPERTY ( int recordingState READ recordingState NOTIFY recordingChanged)
 private:
     QAudioRecorder * audioRecorder;
+    QHash<QString, CodecSetting> codecSettingsMap;
 public slots:
     void stopRecordingDelayed();
 public:
