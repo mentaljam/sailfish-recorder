@@ -41,7 +41,7 @@ Page {
             }
         }
         Label {
-            text: "Vorbis is the best choise for music. Speex is the best choise for speech. PCM is raw uncompressed data and FLAC is a lossless format."
+            text: "Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format."
             wrapMode: Text.WordWrap
             font.pixelSize: Theme.fontSizeExtraSmall
             width: parent.width - Theme.paddingLarge * 2

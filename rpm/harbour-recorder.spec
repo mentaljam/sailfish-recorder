@@ -13,7 +13,7 @@ Name:       harbour-recorder
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Recorder
-Version:    0.2.4
+Version:    0.2.5
 Release:    1
 Group:      Qt/Qt
 License:    GNU GENERAL PUBLIC LICENSE
@@ -28,7 +28,7 @@ BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  desktop-file-utils
 
 %description
-A  simple sound recorder.
+A simple sound recorder.
 
 %prep
 %setup -q -n %{name}-%{version}

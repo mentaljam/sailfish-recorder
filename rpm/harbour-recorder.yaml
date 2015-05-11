@@ -1,6 +1,6 @@
 Name: harbour-recorder
 Summary: Recorder
-Version: 0.2.4
+Version: 0.2.5
 Release: 1
 Group: Qt/Qt
 URL: http://corne.info/
@@ -8,7 +8,7 @@ License: "GNU GENERAL PUBLIC LICENSE"
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |-
-  A  simple sound recorder.
+  A simple sound recorder.
 Configure: none
 Builder: qtc5
 PkgConfigBR:
