@@ -13,7 +13,7 @@ Name:       harbour-recorder
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Recorder
-Version:    0.2.5
+Version:    0.2.6
 Release:    1
 Group:      Qt/Qt
 License:    GNU GENERAL PUBLIC LICENSE
@@ -61,14 +61,12 @@ desktop-file-install --delete-original       \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 %files
-%defattr(-,root,root,-)
-/usr/share/harbour-recorder
-/usr/share/icons/hicolor/86x86/apps
-/usr/share/applications
-/usr/bin
-%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}
+%{_datadir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}/qml
-%{_bindir}
+%{_datadir}/icons/hicolor/
+
+
 # >> files
 # << files
