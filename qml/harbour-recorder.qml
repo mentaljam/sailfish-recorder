@@ -20,19 +20,16 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.recorder.Recorder 1.0
 import "pages"
-import "util"
 
 ApplicationWindow
 {
     property string timestamp: "0:00";
     property int time: 0;
 
+    allowedOrientations: Orientation.All
+
     Recorder {
         id: recorder
-    }
-
-    Popup {
-        id: banner
     }
 
     Timer {

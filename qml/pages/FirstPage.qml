@@ -19,10 +19,16 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
+import "../util"
 
 
 Page {
     id: page
+    allowedOrientations: Orientation.All
+
+    Popup {
+        id: banner
+    }
 
     Audio {
         id: audio
