@@ -32,7 +32,6 @@ OTHER_FILES += \
     appicons/108x108/apps/harbour-recorder.png \
     appicons/128x128/apps/harbour-recorder.png \
     appicons/256x256/apps/harbour-recorder.png \
-    appicons/scalable/apps/harbour-recorder.svgz \
     rpm/harbour-recorder.yaml.backup
 
 HEADERS += \
