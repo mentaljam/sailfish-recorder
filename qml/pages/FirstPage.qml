@@ -36,6 +36,15 @@ Page {
         onStopped: musicPlayer.hide();
     }
 
+    Timer {
+        id: migrateTimer
+        interval: 1000;
+        running: false;
+        repeat: false;
+        onTriggered: {
+            pageStack.push(migrationWizard);
+        }
+    }
 
     Drawer {
         id: drawer
@@ -50,6 +59,10 @@ Page {
 
         Component.onCompleted: {
             refreshRecordingsList();
+
+            if (recorder.shouldMigrate()) {
+                migrateTimer.start();
+            }
         }
 
         anchors.fill: parent;
@@ -134,7 +147,7 @@ Page {
 
                 Label {
                     id: filenameLabel
-                    x: Theme.paddingLarge
+                    x: Theme.horizontalPageMargin
                     text: model.text
                     anchors.verticalCenter: parent.verticalCenter
                     color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
@@ -240,6 +253,39 @@ Page {
                     text: timestamp
                     color: Theme.secondaryHighlightColor
                     font.family: "monospace"
+                }
+            }
+        }
+    }
+
+    Component {
+        id: migrationWizard
+
+        Dialog {
+            Column {
+                width: parent.width
+
+                DialogHeader {
+                    title: "Migration"
+                }
+
+                Label {
+                    text: 'The default folder has changed from "~/Recordings/" ' +
+                          'to "~/Documents/Recordings/". Do you want to move existing ' +
+                          'recordings to the new folder? If you cancel the old directory will be kept.';
+                    font.pixelSize: Theme.fontSizeMedium
+                    wrapMode: Text.WordWrap
+                    width: parent.width - Theme.horizontalPageMargin * 2
+                    x: Theme.horizontalPageMargin
+                }
+            }
+
+            onAccepted: {
+                if (!recorder.migrate()) {
+                    banner.notify("Migration failed, old recordings should still be in the old folder.");
+                } else {
+                    banner.notify("Migration.")
+                    drawer.refreshRecordingsList();
                 }
             }
         }

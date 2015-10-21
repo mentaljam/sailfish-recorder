@@ -20,6 +20,9 @@
 #include "harbour-recorder.h"
 #include <sailfishapp.h>
 
+const QString Recorder::oldStoragePath = "/Recordings";
+const QString Recorder::defaultStoragePath = "/Documents/Recordings";
+
 
 int main(int argc, char *argv[])
 {
@@ -140,7 +143,7 @@ void Recorder::setLocation(QString location) {
 
 QString Recorder::getLocation() {
     QSettings settings;
-    return settings.value("recorder/fileLocation",  QDir::homePath() + "/Recordings").toString();
+    return settings.value("recorder/fileLocation",  QDir::homePath() + Recorder::defaultStoragePath).toString();
 }
 
 void Recorder::setCodec(QString codec, int index) {
@@ -152,4 +155,35 @@ void Recorder::setCodec(QString codec, int index) {
 int Recorder::getCodecIndex() {
     QSettings settings;
     return settings.value("recorder/codecindex", 2).toInt();
+}
+
+bool Recorder::shouldMigrate() {
+    QSettings settings;
+
+    if (settings.value("recorder/migrate-1", false).toBool()) {
+        return false;
+    }
+    settings.setValue("recorder/migrate-1", true);
+
+    if (!settings.value("recorder/fileLocation").toString().compare(QDir::homePath() + Recorder::oldStoragePath) == 0) {
+        // The user has set up a custom folder, don't run the migration
+        return false;
+    }
+
+    // If the old directory exists, migrate the files.
+    QDir dir(QDir::homePath() + Recorder::oldStoragePath);
+    return dir.exists();
+}
+
+bool Recorder::migrate() {
+    QSettings settings;
+    QDir dir;
+
+    bool result = dir.rename(QDir::homePath() + Recorder::oldStoragePath, QDir::homePath() + Recorder::defaultStoragePath);
+
+    if (result) {
+        settings.setValue("recorder/fileLocation", QDir::homePath() + Recorder::defaultStoragePath);
+    }
+
+    return result;
 }

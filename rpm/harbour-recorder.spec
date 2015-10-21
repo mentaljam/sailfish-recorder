@@ -13,13 +13,12 @@ Name:       harbour-recorder
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Recorder
-Version:    0.2.6
+Version:    0.3.0
 Release:    1
 Group:      Qt/Qt
 License:    GNU GENERAL PUBLIC LICENSE
 URL:        http://corne.info/
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  harbour-recorder.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
 BuildRequires:  pkgconfig(Qt5Core)

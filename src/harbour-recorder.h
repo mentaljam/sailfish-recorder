@@ -11,6 +11,8 @@ class Recorder : public QObject {
 private:
     QAudioRecorder * audioRecorder;
     QHash<QString, CodecSetting> codecSettingsMap;
+    static const QString oldStoragePath;
+    static const QString defaultStoragePath;
 public slots:
     void stopRecordingDelayed();
 public:
@@ -29,6 +31,8 @@ public:
     Q_INVOKABLE QString getLocation();
     Q_INVOKABLE int getCodecIndex();
     Q_INVOKABLE QStringList getExistingFiles();
+    Q_INVOKABLE bool shouldMigrate();
+    Q_INVOKABLE bool migrate();
 signals:
     void pathCreationFailed();
     void recordingChanged();
