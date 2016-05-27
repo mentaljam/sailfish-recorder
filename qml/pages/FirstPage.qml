@@ -79,17 +79,57 @@ Page {
 
             DockedPanel {
                 id: musicPlayer
-                height: 150
+                height: 250
                 width: parent.width
                 dock: Dock.Top
-                Flow {
+
+                Row {
+                    height: 100
+                    y: 150
+                    Slider {
+                        property int position: audio.position
+
+                        id: userSlider
+                        width: musicPlayer.width
+                        maximumValue: audio.duration
+
+                        onPositionChanged:{
+                            if (!pressed) {
+                                value = position
+                            }
+                        }
+
+                        onReleased: {
+                            audio.seek(value)
+                        }
+
+                    }
+                }
+
+                Row {
+                    height: 150
                     anchors.centerIn: parent
                     IconButton {
+                        width: 128
                         icon.source: "../icons/stop.png"
                         onClicked: {
                             audio.stop();
                         }
                     }
+
+                    IconButton {
+                        width: 128
+                        id: pauseButton
+                        icon.source: audio.playbackState === 2 ? "../icons/play.png" : "../icons/pause.png"
+                        onClicked: {
+                            if (audio.playbackState === 2) {
+                                audio.play();
+                            } else if (audio.playbackState === 1) {
+                                audio.pause();
+                            }
+                        }
+                    }
+
                     Label {
                         x: Theme.paddingLarge
                         width: 150
