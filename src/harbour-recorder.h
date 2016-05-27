@@ -24,12 +24,14 @@ public:
     Q_INVOKABLE void stopRecording();
     Q_INVOKABLE void setLocation(QString);
     Q_INVOKABLE void setCodec(QString, int);
+    Q_INVOKABLE void setSampleRate(int);
     Q_INVOKABLE void removeFile(QString);
     Q_INVOKABLE void renameFile(QString, QString);
     Q_INVOKABLE int recordingState();
     Q_INVOKABLE QString startRecording();
     Q_INVOKABLE QString getLocation();
     Q_INVOKABLE int getCodecIndex();
+    Q_INVOKABLE int getSampleRate();
     Q_INVOKABLE QStringList getExistingFiles();
     Q_INVOKABLE bool shouldMigrate();
     Q_INVOKABLE bool migrate();

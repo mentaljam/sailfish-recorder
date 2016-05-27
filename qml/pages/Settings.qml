@@ -49,5 +49,49 @@ Page {
             x: Theme.horizontalPageMargin
             color: Theme.highlightColor
         }
+        ComboBox {
+            property variant rates: [
+                0,
+                8000,
+                11025,
+                16000,
+                22050,
+                32000,
+                44100
+            ]
+
+            width: parent.width
+            label: "Sample Rate"
+            currentIndex: rates.indexOf(recorder.getSampleRate())
+
+            onCurrentItemChanged: {
+                recorder.setSampleRate(rates[currentIndex]);
+            }
+
+            menu: ContextMenu {
+                MenuItem {
+                    text: "auto"
+                }
+
+                MenuItem {
+                    text: "8kHz"
+                }
+                MenuItem {
+                    text: "11kHz"
+                }
+                MenuItem {
+                    text: "16kHz"
+                }
+                MenuItem {
+                    text: "22kHz"
+                }
+                MenuItem {
+                    text: "32kHz"
+                }
+                MenuItem {
+                    text: "44kHz"
+                }
+            }
+        }
     }
 }

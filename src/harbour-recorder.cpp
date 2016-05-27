@@ -90,10 +90,16 @@ QString Recorder::startRecording() {
             }
         }
 
+        int selectedSampleRate = qsettings.value("recorder/samplerate", 0).toInt();
+
         QAudioEncoderSettings settings;
         settings.setCodec(codec.getCodec());
         settings.setEncodingMode(QMultimedia::TwoPassEncoding);
         settings.setQuality(QMultimedia::HighQuality);
+
+        if (selectedSampleRate != 0) {
+            settings.setSampleRate(selectedSampleRate);
+        }
 
         audioRecorder->setAudioInput("pulseaudio:");
         audioRecorder->setEncodingSettings(settings);
@@ -155,6 +161,16 @@ void Recorder::setCodec(QString codec, int index) {
 int Recorder::getCodecIndex() {
     QSettings settings;
     return settings.value("recorder/codecindex", 2).toInt();
+}
+
+void Recorder::setSampleRate(int rate) {
+    QSettings settings;
+    settings.setValue("recorder/samplerate", rate);
+}
+
+int Recorder::getSampleRate() {
+    QSettings settings;
+    return settings.value("recorder/samplerate", 0).toInt();
 }
 
 bool Recorder::shouldMigrate() {
