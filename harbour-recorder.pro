@@ -43,3 +43,6 @@ HEADERS += \
 
 QT +=\
     multimedia
+
+TRANSLATIONS += \
+    translations/harbour-recorder-ru.ts
