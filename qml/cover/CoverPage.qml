@@ -24,12 +24,15 @@ CoverBackground {
         id: label
         anchors.centerIn: parent
         text: {
-            if(recorder.recordingState === 0) {
-                return "Record"
-            } else if(recorder.recordingState === 1) {
-                return "Stop";
-            } else if(recorder.recordingState === 2) {
-                return "Resume";
+            switch (recorder.recordingState) {
+            case 0:
+                return qsTr("Record")
+            case 1:
+                return qsTr("Stop")
+            case 2:
+                return qsTr("Resume")
+            default:
+                return ""
             }
         }
     }
@@ -40,19 +43,25 @@ CoverBackground {
         CoverAction {
             iconSource: recorder.recordingState === 1 ? "image://theme/icon-cover-cancel" : "image://theme/icon-cover-new"
             onTriggered: {
-                if(recorder.recordingState === 1) {
-                    recorder.stopRecording();
-                    timer.stop();
-                    time = 0;
-                } else if(recorder.recordingState === 0) {
+                switch (recorder.recordingState) {
+                case 0:
                     var msg = recorder.startRecording();
                     if(msg === "recording") {
-                        timestamp = "0:00";
-                        timer.start();
+                        timestamp = "0:00"
+                        timer.start()
                     }
-                } else if(recorder.recordingState === 2) {
-                    recorder.resumeRecording();
-                    timer.start();
+                    break
+                case 1:
+                    recorder.stopRecording()
+                    timer.stop()
+                    time = 0
+                    break
+                case 2:
+                    recorder.resumeRecording()
+                    timer.start()
+                    break
+                default:
+                    break
                 }
             }
         }

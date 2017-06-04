@@ -6,20 +6,21 @@ Page {
     Column {
         width: parent.width
         PageHeader {
-            title: "Settings"
+            title: qsTr("Settings")
         }
         TextField {
             id: location
             width: parent.width
             text: recorder.getLocation()
-            label: "Recordings Location"
+            label: qsTr("Recordings Location")
+            placeholderText: label
             onTextChanged: {
                 recorder.setLocation(location.text)
             }
         }
         ComboBox {
             width: parent.width
-            label: "Codec"
+            label: qsTr("Codec")
             currentIndex: recorder.getCodecIndex()
 
             onCurrentItemChanged: {
@@ -42,13 +43,14 @@ Page {
             }
         }
         Label {
-            text: "Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format."
+            text: qsTr("Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.")
             wrapMode: Text.WordWrap
             font.pixelSize: Theme.fontSizeExtraSmall
             width: parent.width - Theme.horizontalPageMargin * 2
             x: Theme.horizontalPageMargin
             color: Theme.highlightColor
         }
+
         ComboBox {
             property variant rates: [
                 0,
@@ -61,7 +63,7 @@ Page {
             ]
 
             width: parent.width
-            label: "Sample Rate"
+            label: qsTr("Sample Rate")
             currentIndex: rates.indexOf(recorder.getSampleRate())
 
             onCurrentItemChanged: {
@@ -70,26 +72,26 @@ Page {
 
             menu: ContextMenu {
                 MenuItem {
-                    text: "auto"
+                    text: qsTr("auto")
                 }
 
                 MenuItem {
-                    text: "8kHz"
+                    text: qsTr("%0kHz").arg(8)
                 }
                 MenuItem {
-                    text: "11kHz"
+                    text: qsTr("%0kHz").arg(11)
                 }
                 MenuItem {
-                    text: "16kHz"
+                    text: qsTr("%0kHz").arg(16)
                 }
                 MenuItem {
-                    text: "22kHz"
+                    text: qsTr("%0kHz").arg(22)
                 }
                 MenuItem {
-                    text: "32kHz"
+                    text: qsTr("%0kHz").arg(32)
                 }
                 MenuItem {
-                    text: "44kHz"
+                    text: qsTr("%0kHz").arg(44)
                 }
             }
         }

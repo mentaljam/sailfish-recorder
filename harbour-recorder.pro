@@ -8,7 +8,9 @@
 #         - icon definition filename in desktop file must be changed
 TARGET = harbour-recorder
 
-CONFIG += sailfishapp
+CONFIG += \
+    sailfishapp \
+    sailfishapp_i18n
 
 appicons.path = /usr/share/icons/hicolor
 appicons.files = appicons/*
@@ -32,7 +34,8 @@ OTHER_FILES += \
     appicons/108x108/apps/harbour-recorder.png \
     appicons/128x128/apps/harbour-recorder.png \
     appicons/256x256/apps/harbour-recorder.png \
-    rpm/harbour-recorder.yaml.backup
+    rpm/harbour-recorder.yaml.backup \
+    translations/*.ts \
 
 HEADERS += \
     src/harbour-recorder.h \

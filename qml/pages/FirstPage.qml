@@ -75,7 +75,7 @@ Page {
             height: parent.height
             model: recordingsModel
 
-            header: PageHeader { title: "Recordings" }
+            header: PageHeader { title: qsTr("Recordings") }
 
             DockedPanel {
                 id: musicPlayer
@@ -150,13 +150,13 @@ Page {
 
             PullDownMenu {
                 MenuItem {
-                    text: "Settings"
+                    text: qsTr("Settings")
                     onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
                 }
                 MenuItem {
-                    text: "Refresh"
+                    text: qsTr("Refresh")
                     onClicked: {
-                        banner.notify("Refreshing");
+                        banner.notify(qsTr("Refreshing"));
                         drawer.refreshRecordingsList();
                     }
                 }
@@ -177,7 +177,7 @@ Page {
                 }
 
                 function remove() {
-                    remorseAction("Deleting", function() {
+                    remorseAction(qsTr("Deleting"), function() {
                         recorder.removeFile(model.text)
                         recordingsModel.remove(index)
                     })
@@ -197,11 +197,11 @@ Page {
                     id: contextMenuComponent
                     ContextMenu {
                         MenuItem {
-                            text: "Delete"
+                            text: qsTr("Delete")
                             onClicked: remove()
                         }
                         MenuItem {
-                            text: "Rename"
+                            text: qsTr("Rename")
                             onClicked: pageStack.push(renameDialog)
                         }
                     }
@@ -224,12 +224,13 @@ Page {
                             width: parent.width - Theme.paddingLarge * 2
                             x: Theme.paddingLarge
                             PageHeader {
-                                title: "Rename File"
+                                title: qsTr("Rename File")
                             }
                             TextField {
                                 width: parent.width
                                 id: newFilename
-                                label: "New filename"
+                                label: qsTr("New filename")
+                                placeholderText: label
                                 text: model.text
                             }
                         }
@@ -267,7 +268,7 @@ Page {
                                 timestamp = "0:00";
                                 timer.start();
                             } else if(msg === "nofolder") {
-                                banner.notify("Couldn't create file in \"" + recorder.getLocation() + "\"");
+                                banner.notify(qsTr("Couldn't create file in \"%0\"".arg(recorder.getLocation())));
                             }
                         } else if(recorder.recordingState === 2) {
                             recorder.resumeRecording();
@@ -306,13 +307,12 @@ Page {
                 width: parent.width
 
                 DialogHeader {
-                    title: "Migration"
+                    title: qsTr("Migration")
                 }
 
                 Label {
-                    text: 'The default folder has changed from "~/Recordings/" ' +
-                          'to "~/Documents/Recordings/". Do you want to move existing ' +
-                          'recordings to the new folder? If you cancel the old directory will be kept.';
+                    text: qsTr("The default folder has changed from \"%0\" to \"%1\". Do you want to move existing recordings to the new folder? If you cancel the old directory will be kept.")
+                        .arg("~/Recordings/").arg("~/Documents/Recordings/")
                     font.pixelSize: Theme.fontSizeMedium
                     wrapMode: Text.WordWrap
                     width: parent.width - Theme.horizontalPageMargin * 2
@@ -322,9 +322,9 @@ Page {
 
             onAccepted: {
                 if (!recorder.migrate()) {
-                    banner.notify("Migration failed, old recordings should still be in the old folder.");
+                    banner.notify(qsTr("Migration failed, old recordings should still be in the old folder."));
                 } else {
-                    banner.notify("Migration.")
+                    banner.notify(qsTr("Migration."))
                     drawer.refreshRecordingsList();
                 }
             }
