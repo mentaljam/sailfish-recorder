@@ -12,10 +12,7 @@ CONFIG += \
     sailfishapp \
     sailfishapp_i18n
 
-appicons.path = /usr/share/icons/hicolor
-appicons.files = appicons/*
-
-INSTALLS += appicons
+SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
 HEADERS += \
     src/recorder.h \
@@ -35,10 +32,6 @@ OTHER_FILES += \
     qml/pages/MigrationPage.qml \
     qml/components/RecordingPlayer.qml \
     qml/components/RecordingDelegate.qml \
-    appicons/86x86/apps/harbour-recorder.png \
-    appicons/108x108/apps/harbour-recorder.png \
-    appicons/128x128/apps/harbour-recorder.png \
-    appicons/256x256/apps/harbour-recorder.png \
     rpm/harbour-recorder.spec \
     harbour-recorder.desktop \
     translations/*.ts \
