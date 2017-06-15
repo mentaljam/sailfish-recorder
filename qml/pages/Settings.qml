@@ -11,25 +11,21 @@ Page {
         TextField {
             id: location
             width: parent.width
-            text: recorder.getLocation()
+            text: recorder.location
             label: qsTr("Recordings Location")
             placeholderText: label
-            onTextChanged: {
-                recorder.setLocation(location.text)
-            }
+            onTextChanged: recorder.location = text
         }
         ComboBox {
             width: parent.width
             label: qsTr("Codec")
-            currentIndex: recorder.getCodecIndex()
+            currentIndex: recorder.codec
 
-            onCurrentItemChanged: {
-                recorder.setCodec(currentItem.text, currentIndex);
-            }
+            onCurrentItemChanged: recorder.codec = currentIndex
 
             menu: ContextMenu {
                 MenuItem {
-                    text: "Vorbis";
+                    text: "Vorbis"
                 }
                 MenuItem {
                     text: "Speex"
@@ -64,11 +60,9 @@ Page {
 
             width: parent.width
             label: qsTr("Sample Rate")
-            currentIndex: rates.indexOf(recorder.getSampleRate())
+            currentIndex: rates.indexOf(recorder.sampleRate)
 
-            onCurrentItemChanged: {
-                recorder.setSampleRate(rates[currentIndex]);
-            }
+            onCurrentItemChanged: recorder.sampleRate = rates[currentIndex]
 
             menu: ContextMenu {
                 MenuItem {

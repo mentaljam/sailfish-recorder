@@ -17,29 +17,32 @@ appicons.files = appicons/*
 
 INSTALLS += appicons
 
-SOURCES += src/harbour-recorder.cpp \
-    src/codecsetting.cpp
+HEADERS += \
+    src/recorder.h \
+    src/recordingsmodel.h
+
+SOURCES += \
+    src/harbour-recorder.cpp \
+    src/recorder.cpp \
+    src/recordingsmodel.cpp
 
 OTHER_FILES += \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    rpm/harbour-recorder.spec \
-    harbour-recorder.desktop \
-    qml/stop.png \
-    qml/record.png \
     qml/pages/Settings.qml \
     qml/harbour-recorder.qml \
-    qml/util/Popup.qml \
+    qml/pages/RenameDialog.qml \
+    qml/pages/MigrationPage.qml \
+    qml/components/RecordingPlayer.qml \
+    qml/components/RecordingDelegate.qml \
     appicons/86x86/apps/harbour-recorder.png \
     appicons/108x108/apps/harbour-recorder.png \
     appicons/128x128/apps/harbour-recorder.png \
     appicons/256x256/apps/harbour-recorder.png \
-    rpm/harbour-recorder.yaml.backup \
+    rpm/harbour-recorder.spec \
+    harbour-recorder.desktop \
     translations/*.ts \
-
-HEADERS += \
-    src/harbour-recorder.h \
-    src/codecsetting.h
+    qml/icons/*.png
 
 QT +=\
     multimedia
