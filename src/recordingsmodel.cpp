@@ -1,6 +1,7 @@
 #include "recordingsmodel.h"
+#include "recorder.h"
 #include <QFileSystemWatcher>
-#include <QDir>
+#include <QDirIterator>
 #include <QDateTime>
 
 const QStringList RecordingsModel::filters{
@@ -12,35 +13,50 @@ const QStringList RecordingsModel::filters{
 
 RecordingsModel::RecordingsModel(QObject *parent) :
     QAbstractListModel(parent),
+    mRecorder(0),
     mWatcher(new QFileSystemWatcher(this))
 {
     connect(mWatcher, &QFileSystemWatcher::directoryChanged,
-            this, &RecordingsModel::scanRecords);
+            this,     &RecordingsModel::scanRecords);
 }
 
-QString RecordingsModel::path() const
+Recorder *RecordingsModel::recorder() const
 {
-    auto directories = mWatcher->directories();
-    return directories.empty() ? "" : directories[0];
+    return mRecorder;
 }
 
-void RecordingsModel::setPath(const QString &path)
+void RecordingsModel::setRecorder(Recorder *recorder)
 {
-    auto oldPath = this->path();
-    if (oldPath != path)
+    if (mRecorder != recorder)
     {
-        if (!mData.empty())
+        if (mRecorder)
         {
-            mWatcher->removePath(oldPath);
+            disconnect(mRecorder, &Recorder::locationChanged,
+                       this,      &RecordingsModel::scanRecords);
+            disconnect(mRecorder, &Recorder::recursiveSearchChanged,
+                       this,      &RecordingsModel::scanRecords);
         }
-        mWatcher->addPath(path);
-        this->scanRecords(path);
-        emit this->pathChanged();
+
+        mRecorder = recorder;
+        connect(mRecorder, &Recorder::locationChanged,
+                this,      &RecordingsModel::scanRecords);
+        connect(mRecorder, &Recorder::recursiveSearchChanged,
+                this,      &RecordingsModel::scanRecords);
+
+        auto dirs = mWatcher->directories();
+        if (!dirs.empty())
+        {
+            mWatcher->removePath(dirs[0]);
+        }
+        mWatcher->addPath(mRecorder->location());
+        this->scanRecords();
     }
 }
 
-void RecordingsModel::scanRecords(const QString &path)
+void RecordingsModel::scanRecords()
 {
+    Q_ASSERT(mRecorder);
+
     // Scan for updated and removed records
     for (int row = mData.size() - 1; row > -1; --row)
     {
@@ -66,10 +82,12 @@ void RecordingsModel::scanRecords(const QString &path)
     }
 
     // Scan for new records
-    auto fileInfoList = QDir(path).entryInfoList(RecordingsModel::filters, QDir::Files);
-    for (auto fileInfo: fileInfoList)
+    auto flags = mRecorder->recursiveSearch() ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
+    QDirIterator it(mRecorder->location(), RecordingsModel::filters, QDir::Files, flags);
+    while (it.hasNext())
     {
         // Add a new record
+        QFileInfo fileInfo(it.next());
         if (mData.indexOf(fileInfo) == -1)
         {
             auto pos = mData.size();

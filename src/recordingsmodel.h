@@ -4,12 +4,12 @@
 #include <QAbstractListModel>
 #include <QFileInfo>
 
+class Recorder;
 class QFileSystemWatcher;
 
 class RecordingsModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
 
 public:
 
@@ -24,16 +24,14 @@ public:
 
     explicit RecordingsModel(QObject *parent = 0);
 
-    QString path() const;
-    void setPath(const QString &path);
-
-signals:
-    void pathChanged();
+    Recorder *recorder() const;
+    void setRecorder(Recorder *recorder);
 
 private slots:
-    void scanRecords(const QString &path);
+    void scanRecords();
 
 private:
+    Recorder *mRecorder;
     QFileSystemWatcher *mWatcher;
     QFileInfoList mData;
     static const QStringList filters;

@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     context->setContextProperty("recorder", &recorder);
 
     RecordingsModel sourceModel;
-    sourceModel.setPath(recorder.location());
+    sourceModel.setRecorder(&recorder);
     QSortFilterProxyModel recordingsModel;
     recordingsModel.setSourceModel(&sourceModel);
     recordingsModel.setSortRole(RecordingsModel::Modified);

@@ -3,11 +3,14 @@ import Sailfish.Silica 1.0
 
 Page {
     allowedOrientations: Orientation.All
+
     Column {
         width: parent.width
+
         PageHeader {
             title: qsTr("Settings")
         }
+
         TextField {
             id: location
             width: parent.width
@@ -16,6 +19,14 @@ Page {
             placeholderText: label
             onTextChanged: recorder.location = text
         }
+
+        TextSwitch {
+            text: qsTr("Recursive Search")
+            description: qsTr("Search for recording files in subdirectories")
+            checked: recorder.recursiveSearch
+            onCheckedChanged: recorder.recursiveSearch = checked
+        }
+
         ComboBox {
             width: parent.width
             label: qsTr("Codec")
@@ -38,6 +49,7 @@ Page {
                 }
             }
         }
+
         Label {
             text: qsTr("Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.")
             wrapMode: Text.WordWrap

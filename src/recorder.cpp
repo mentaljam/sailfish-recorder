@@ -7,6 +7,7 @@
 #define SAMPLE_RATE   QStringLiteral("recorder/samplerate")
 #define MIGRATE1      QStringLiteral("recorder/migrate-1")
 #define CODEC         QStringLiteral("recorder/codecindex")
+#define RECURSIVE     QStringLiteral("recorder/recursiveSearch")
 
 
 const QString Recorder::defaultStoragePath = QDir::homePath().append("/Documents/Recordings");
@@ -69,6 +70,20 @@ void Recorder::setCodec(const Codec &codec)
 QString Recorder::durationLabel() const
 {
     return Recorder::formatTime(this->duration());
+}
+
+bool Recorder::recursiveSearch() const
+{
+    return settings.value(RECURSIVE, false).toBool();
+}
+
+void Recorder::setRecursiveSearch(bool recursiveSearch)
+{
+    if (this->recursiveSearch() != recursiveSearch)
+    {
+        settings.setValue(RECURSIVE, recursiveSearch);
+        emit this->recursiveSearchChanged();
+    }
 }
 
 QString Recorder::formatTime(const qint64 &msec)

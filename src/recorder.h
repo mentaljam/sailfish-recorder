@@ -13,6 +13,7 @@ class Recorder : public QAudioRecorder
     Q_PROPERTY(int sampleRate READ sampleRate WRITE setSampleRate NOTIFY sampleRateChanged)
     Q_PROPERTY(Recorder::Codec codec READ codec WRITE setCodec NOTIFY codecChanged)
     Q_PROPERTY(QString durationLabel READ durationLabel NOTIFY durationLabelChanged)
+    Q_PROPERTY(bool recursiveSearch READ recursiveSearch WRITE setRecursiveSearch NOTIFY recursiveSearchChanged)
 
 public:
 
@@ -41,6 +42,9 @@ public:
 
     QString durationLabel() const;
 
+    bool recursiveSearch() const;
+    void setRecursiveSearch(bool recursiveSearch);
+
     Q_INVOKABLE static QString formatTime(const qint64 &msec);
 
 public slots:
@@ -54,6 +58,7 @@ signals:
     void sampleRateChanged();
     void codecChanged();
     void durationLabelChanged();
+    void recursiveSearchChanged();
 
 private:
 
