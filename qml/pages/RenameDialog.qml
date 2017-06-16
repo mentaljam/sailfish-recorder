@@ -3,14 +3,12 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property string fileName
+    readonly property string baseName: fileName.split(".")[0]
 
     canAccept: newFilename.text
 
-    onAcceptPendingChanged: {
-        if (acceptPending) {
-            recorder.renameFile(fileName, newFilename.text)
-        }
-    }
+    onAccepted: recorder.renameFile(fileName, newFilename.text +
+                                    fileName.substring(baseName.length))
 
     Component.onCompleted: newFilename.forceActiveFocus()
 
@@ -26,10 +24,15 @@ Dialog {
             width: parent.width
             label: qsTr("New filename")
             placeholderText: label
-            text: fileName
+            text: baseName
 
             EnterKey.iconSource: "image://theme/icon-m-enter-next"
             EnterKey.onClicked: accept()
+        }
+
+        ViewPlaceholder {
+            enabled: !canAccept
+            text: qsTr("A file name must be specified")
         }
     }
 }

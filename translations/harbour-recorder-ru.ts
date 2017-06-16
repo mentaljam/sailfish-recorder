@@ -132,14 +132,19 @@
 <context>
     <name>RenameDialog</name>
     <message>
-        <location filename="../qml/pages/RenameDialog.qml" line="21"/>
+        <location filename="../qml/pages/RenameDialog.qml" line="19"/>
         <source>Rename File</source>
         <translation>Переименовать файл</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RenameDialog.qml" line="27"/>
+        <location filename="../qml/pages/RenameDialog.qml" line="25"/>
         <source>New filename</source>
         <translation>Новое имя файла</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RenameDialog.qml" line="35"/>
+        <source>A file name must be specified</source>
+        <translation>Необходимо указать имя файла</translation>
     </message>
 </context>
 <context>
