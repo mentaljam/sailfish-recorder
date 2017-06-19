@@ -16,8 +16,7 @@ RecordingsModel::RecordingsModel(QObject *parent) :
     mRecorder(0),
     mWatcher(new QFileSystemWatcher(this))
 {
-    connect(mWatcher, &QFileSystemWatcher::directoryChanged,
-            this,     &RecordingsModel::scanRecords);
+    connect(mWatcher, &QFileSystemWatcher::directoryChanged, this, &RecordingsModel::scanRecords);
 }
 
 Recorder *RecordingsModel::recorder() const
@@ -27,30 +26,22 @@ Recorder *RecordingsModel::recorder() const
 
 void RecordingsModel::setRecorder(Recorder *recorder)
 {
-    if (mRecorder != recorder)
+    if (mRecorder == recorder)
     {
-        if (mRecorder)
-        {
-            disconnect(mRecorder, &Recorder::locationChanged,
-                       this,      &RecordingsModel::scanRecords);
-            disconnect(mRecorder, &Recorder::recursiveSearchChanged,
-                       this,      &RecordingsModel::scanRecords);
-        }
-
-        mRecorder = recorder;
-        connect(mRecorder, &Recorder::locationChanged,
-                this,      &RecordingsModel::scanRecords);
-        connect(mRecorder, &Recorder::recursiveSearchChanged,
-                this,      &RecordingsModel::scanRecords);
-
-        auto dirs = mWatcher->directories();
-        if (!dirs.empty())
-        {
-            mWatcher->removePath(dirs[0]);
-        }
-        mWatcher->addPath(mRecorder->location());
-        this->scanRecords();
+        return;
     }
+
+    if (mRecorder)
+    {
+        disconnect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::onLocationChanged);
+        disconnect(mRecorder, &Recorder::recursiveSearchChanged, this, &RecordingsModel::resetModel);
+    }
+
+    mRecorder = recorder;
+    connect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::onLocationChanged);
+    connect(mRecorder, &Recorder::recursiveSearchChanged, this, &RecordingsModel::resetModel);
+
+    this->scanRecords();
 }
 
 void RecordingsModel::scanRecords()
@@ -74,7 +65,7 @@ void RecordingsModel::scanRecords()
         }
         else
         {
-            // Add a new record
+            // Remove record
             this->beginRemoveRows(QModelIndex(), row, row);
             mData.removeAt(row);
             this->endRemoveRows();
@@ -96,6 +87,35 @@ void RecordingsModel::scanRecords()
             this->endInsertRows();
         }
     }
+}
+
+void RecordingsModel::onLocationChanged()
+{
+    bool needSetPath = true;
+    auto dirs = mWatcher->directories();
+    auto newPath = mRecorder->location();
+    if (!dirs.empty())
+    {
+        auto currentPath = dirs[0];
+        needSetPath = currentPath != newPath;
+        if (needSetPath)
+        {
+            mWatcher->removePath(currentPath);
+        }
+    }
+    if (needSetPath)
+    {
+        mWatcher->addPath(newPath);
+        this->resetModel();
+    }
+}
+
+void RecordingsModel::resetModel()
+{
+    this->beginResetModel();
+    mData.clear();
+    this->scanRecords();
+    this->endResetModel();
 }
 
 int RecordingsModel::rowCount(const QModelIndex &parent) const

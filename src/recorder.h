@@ -14,6 +14,8 @@ class Recorder : public QAudioRecorder
     Q_PROPERTY(Recorder::Codec codec READ codec WRITE setCodec NOTIFY codecChanged)
     Q_PROPERTY(QString durationLabel READ durationLabel NOTIFY durationLabelChanged)
     Q_PROPERTY(bool recursiveSearch READ recursiveSearch WRITE setRecursiveSearch NOTIFY recursiveSearchChanged)
+    Q_PROPERTY(QString sdCardPath MEMBER mSdCardPath CONSTANT)
+    Q_PROPERTY(QString defaultStoragePath MEMBER defaultStoragePath CONSTANT)
 
 public:
 
@@ -73,6 +75,7 @@ private:
 
     QHash<Codec, CodecSetting> codecSettingsMap;
     QSettings settings;
+    QString mSdCardPath;
 };
 
 #endif // RECORDER_H

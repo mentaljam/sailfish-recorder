@@ -23,6 +23,14 @@ Recorder::Recorder(QObject *parent) :
 {
     this->setAudioInput("pulseaudio:");
     connect(this, &Recorder::durationChanged, this, &Recorder::durationLabelChanged);
+    QDir media(QStringLiteral("/media/sdcard"));
+    auto mediaEntries = media.entryList(QDir::Dirs);
+    // count > 2 is for "." and ".." entries
+    // If SD Card is not mounted mediaEntries will be empty
+    if (mediaEntries.count() > 2)
+    {
+        mSdCardPath = media.absoluteFilePath(mediaEntries[2]);
+    }
 }
 
 QString Recorder::location() const

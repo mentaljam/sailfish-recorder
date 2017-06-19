@@ -16,12 +16,14 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
 HEADERS += \
     src/recorder.h \
-    src/recordingsmodel.h
+    src/recordingsmodel.h \
+    src/directorymodel.h
 
 SOURCES += \
     src/harbour-recorder.cpp \
     src/recorder.cpp \
-    src/recordingsmodel.cpp
+    src/recordingsmodel.cpp \
+    src/directorymodel.cpp
 
 OTHER_FILES += \
     qml/cover/CoverPage.qml \
@@ -30,6 +32,8 @@ OTHER_FILES += \
     qml/harbour-recorder.qml \
     qml/pages/RenameDialog.qml \
     qml/pages/MigrationPage.qml \
+    qml/pages/LocationPage.qml \
+    qml/pages/NewDirectoryPage.qml \
     qml/components/RecordingPlayer.qml \
     qml/components/RecordingDelegate.qml \
     rpm/harbour-recorder.spec \

@@ -29,6 +29,8 @@ public:
 
 private slots:
     void scanRecords();
+    void onLocationChanged();
+    void resetModel();
 
 private:
     Recorder *mRecorder;

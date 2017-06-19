@@ -48,6 +48,46 @@
     </message>
 </context>
 <context>
+    <name>LocationPage</name>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>Текущая папка</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="24"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>Home</source>
+        <translation>Домашняя папка</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>SD карта</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="39"/>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="41"/>
+        <source>Deleting</source>
+        <translation>Удаление</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="85"/>
+        <source>New directory</source>
+        <translation>Новая папка</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="96"/>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+</context>
+<context>
     <name>MigrationPage</name>
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="7"/>
@@ -71,9 +111,32 @@
     </message>
 </context>
 <context>
+    <name>NewDirectoryPage</name>
+    <message>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="19"/>
+        <source>Create</source>
+        <translation>Создать</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="25"/>
+        <source>Directory name</source>
+        <translation>Имя папки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="34"/>
+        <source>Enter new directory name</source>
+        <translation>Введите имя папки</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="36"/>
+        <source>Directory already exists</source>
+        <translation>Папка с таким именем уже существует</translation>
+    </message>
+</context>
+<context>
     <name>Recorder</name>
     <message>
-        <location filename="../src/recorder.cpp" line="123"/>
+        <location filename="../src/recorder.cpp" line="131"/>
         <source>recording</source>
         <translation>запись</translation>
     </message>
@@ -99,32 +162,32 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="140"/>
+        <location filename="../src/recordingsmodel.cpp" line="160"/>
         <source>Older</source>
         <translation>Старше</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="138"/>
+        <location filename="../src/recordingsmodel.cpp" line="158"/>
         <source>Last 6 months</source>
         <translation>Последние полгода</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="134"/>
+        <location filename="../src/recordingsmodel.cpp" line="154"/>
         <source>Last month</source>
         <translation>Последний месяц</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="130"/>
+        <location filename="../src/recordingsmodel.cpp" line="150"/>
         <source>This week</source>
         <translation>Эта неделя</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="126"/>
+        <location filename="../src/recordingsmodel.cpp" line="146"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="122"/>
+        <location filename="../src/recordingsmodel.cpp" line="142"/>
         <source>Today</source>
         <translation>Сегодня</translation>
     </message>
@@ -133,8 +196,8 @@
     <name>RenameDialog</name>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="19"/>
-        <source>Rename File</source>
-        <translation>Переименовать файл</translation>
+        <source>Rename</source>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="25"/>
@@ -150,52 +213,68 @@
 <context>
     <name>Settings</name>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="11"/>
+        <location filename="../qml/pages/Settings.qml" line="57"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="18"/>
+        <location filename="../qml/pages/Settings.qml" line="61"/>
+        <source>Location</source>
+        <translation>Каталог</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="65"/>
         <source>Recordings Location</source>
         <translation>Каталог записей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="24"/>
+        <location filename="../qml/pages/Settings.qml" line="72"/>
+        <source>Set to default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="73"/>
+        <source>Applying</source>
+        <translation>Применение</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="79"/>
         <source>Recursive Search</source>
         <translation>Рекурсивный поиск</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="25"/>
+        <location filename="../qml/pages/Settings.qml" line="80"/>
         <source>Search for recording files in subdirectories</source>
         <translation>Искать записи в подкаталогах</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="32"/>
+        <location filename="../qml/pages/Settings.qml" line="86"/>
+        <location filename="../qml/pages/Settings.qml" line="91"/>
         <source>Codec</source>
         <translation>Кодек</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="54"/>
+        <location filename="../qml/pages/Settings.qml" line="105"/>
         <source>Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.</source>
         <translation>Vorbis хорошо подходит для записи музыки, Speex – для речи. PCM и FLAC позволяют вести запись без потери качества.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="74"/>
+        <location filename="../qml/pages/Settings.qml" line="125"/>
         <source>Sample Rate</source>
         <translation>Частота дискретизации</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="81"/>
+        <location filename="../qml/pages/Settings.qml" line="131"/>
         <source>auto</source>
         <translation>Авто</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="85"/>
-        <location filename="../qml/pages/Settings.qml" line="88"/>
-        <location filename="../qml/pages/Settings.qml" line="91"/>
-        <location filename="../qml/pages/Settings.qml" line="94"/>
-        <location filename="../qml/pages/Settings.qml" line="97"/>
-        <location filename="../qml/pages/Settings.qml" line="100"/>
+        <location filename="../qml/pages/Settings.qml" line="132"/>
+        <location filename="../qml/pages/Settings.qml" line="133"/>
+        <location filename="../qml/pages/Settings.qml" line="134"/>
+        <location filename="../qml/pages/Settings.qml" line="135"/>
+        <location filename="../qml/pages/Settings.qml" line="136"/>
+        <location filename="../qml/pages/Settings.qml" line="137"/>
         <source>%0kHz</source>
         <translation>%0 кГц</translation>
     </message>
@@ -203,7 +282,7 @@
 <context>
     <name>harbour-recorder</name>
     <message>
-        <location filename="../qml/harbour-recorder.qml" line="53"/>
+        <location filename="../qml/harbour-recorder.qml" line="55"/>
         <source>No space left on the device</source>
         <translation>Недостаточно свободного места на устройстве</translation>
     </message>

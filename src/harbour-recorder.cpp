@@ -18,6 +18,7 @@
 
 #include "recorder.h"
 #include "recordingsmodel.h"
+#include "directorymodel.h"
 #include <QtQuick>
 #include <sailfishapp.h>
 #include <QSortFilterProxyModel>
@@ -25,7 +26,8 @@
 
 int main(int argc, char *argv[])
 {
-    qmlRegisterType<Recorder>("harbour.recorder.Recorder", 1, 0, "Recorder");
+    qmlRegisterType<Recorder>("harbour.recorder", 1, 0, "Recorder");
+    qmlRegisterType<DirectoryModel>("harbour.recorder", 1, 0, "DirectoryModel");
 
     auto app = SailfishApp::application(argc, argv);
 

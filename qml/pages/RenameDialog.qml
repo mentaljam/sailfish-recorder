@@ -15,8 +15,8 @@ Dialog {
     Column {
         width: parent.width
 
-        PageHeader {
-            title: qsTr("Rename File")
+        DialogHeader {
+            acceptText: qsTr("Rename")
         }
 
         TextField {
