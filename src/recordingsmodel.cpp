@@ -157,6 +157,33 @@ void RecordingsModel::resetModel()
     }
 }
 
+inline QString RecordingsModel::sectionName(const QDate &modDate)
+{
+    auto curDate = QDate::currentDate();
+    auto days = modDate.daysTo(curDate);
+    if (days == 0)
+    {
+        return tr("Today");
+    }
+    if (days == 1)
+    {
+        return tr("Yesterday");
+    }
+    if (days < 7 && modDate.dayOfWeek() < curDate.dayOfWeek())
+    {
+        return tr("This week");
+    }
+    if (days < curDate.daysInMonth() && modDate.day() < curDate.day())
+    {
+        return tr("This month");
+    }
+    if (days < 183)
+    {
+        return tr("Last 6 months");
+    }
+    return tr("Older");
+}
+
 int RecordingsModel::rowCount(const QModelIndex &parent) const
 {
     return parent.isValid() ? 0 : mData.size();
@@ -171,34 +198,6 @@ QVariant RecordingsModel::data(const QModelIndex &index, int role) const
 
     auto fileInfo = mData[index.row()];
 
-    if (role == Section)
-    {
-        auto curDate = QDate::currentDate();
-        auto modDate = fileInfo.lastModified().date();
-        auto days = modDate.daysTo(curDate);
-        if (days == 0)
-        {
-            return tr("Today");
-        }
-        if (days == 1)
-        {
-            return tr("Yesterday");
-        }
-        if (days < 7 && modDate.dayOfWeek() < curDate.dayOfWeek())
-        {
-            return tr("This week");
-        }
-        if (days < curDate.daysInMonth() && modDate.day() < curDate.day())
-        {
-            return tr("Last month");
-        }
-        if (days < 183)
-        {
-            return tr("Last 6 months");
-        }
-        return tr("Older");
-    }
-
     switch (role)
     {
     case FilePath:
@@ -209,6 +208,8 @@ QVariant RecordingsModel::data(const QModelIndex &index, int role) const
         return fileInfo.absolutePath();
     case Modified:
         return fileInfo.lastModified();
+    case Section:
+        return RecordingsModel::sectionName(fileInfo.lastModified().date());
     default:
         return QVariant();
     }

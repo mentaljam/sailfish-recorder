@@ -35,6 +35,9 @@ private slots:
     void resetModel();
 
 private:
+    static QString sectionName(const QDate &modDate);
+
+private:
     Recorder *mRecorder;
     QFileSystemWatcher *mWatcher;
     QFileInfoList mData;
