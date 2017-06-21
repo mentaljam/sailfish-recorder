@@ -179,11 +179,10 @@ void Recorder::removeFile(const QString &filePath)
     QFile(filePath).remove();
 }
 
-void Recorder::renameFile(const QString &oldName, const QString &newName)
+void Recorder::renameFile(const QString &oldPath, const QString &newPath)
 {
-    if (oldName != newName)
+    if (oldPath != newPath)
     {
-        QDir location(this->location());
-        QFile(location.absoluteFilePath(oldName)).rename(location.absoluteFilePath(newName));
+        QFile(oldPath).rename(newPath);
     }
 }

@@ -3,14 +3,17 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property string fileName
-    readonly property string baseName: fileName.split(".")[0]
+    property string fileDir
 
-    canAccept: newFilename.text
+    readonly property string _baseName: fileName.split(".")[0]
+    readonly property string _extension: fileName.substring(_baseName.length)
+    readonly property string _newFilePath: fileDir + "/" + fileNameField.text + _extension
 
-    onAccepted: recorder.renameFile(fileName, newFilename.text +
-                                    fileName.substring(baseName.length))
+    canAccept: !viewPlaceholder.enabled
 
-    Component.onCompleted: newFilename.forceActiveFocus()
+    onAccepted: recorder.renameFile(fileDir + "/" + fileName, _newFilePath)
+
+    Component.onCompleted: fileNameField.forceActiveFocus()
 
     Column {
         width: parent.width
@@ -20,19 +23,29 @@ Dialog {
         }
 
         TextField {
-            id: newFilename
+            id: fileNameField
             width: parent.width
             label: qsTr("New filename")
             placeholderText: label
-            text: baseName
+            errorHighlight: viewPlaceholder.enabled
+            text: _baseName
 
             EnterKey.iconSource: "image://theme/icon-m-enter-next"
             EnterKey.onClicked: accept()
         }
 
         ViewPlaceholder {
-            enabled: !canAccept
-            text: qsTr("A file name must be specified")
+            id: viewPlaceholder
+            enabled: text
+            text: {
+                if (!fileNameField.text) {
+                    qsTr("A file name must be specified")
+                } else if (recordingsModel.sourceModel.contains(_newFilePath)) {
+                    qsTr("File already exists")
+                } else {
+                    ""
+                }
+            }
         }
     }
 }

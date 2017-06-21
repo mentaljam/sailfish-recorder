@@ -24,6 +24,7 @@ Dialog {
             width: parent.width
             label: qsTr("Directory name")
             placeholderText: label
+            errorHighlight: viewPlaceholder.enabled
         }
 
         ViewPlaceholder {

@@ -52,7 +52,7 @@ public:
 public slots:
     void startRecording();
     void removeFile(const QString &filePath);
-    void renameFile(const QString &oldName, const QString &newName);
+    void renameFile(const QString &oldPath, const QString &newPath);
 
 signals:
     void pathCreationFailed();

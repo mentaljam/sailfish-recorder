@@ -3,6 +3,7 @@
 #include <QFileSystemWatcher>
 #include <QDirIterator>
 #include <QDateTime>
+#include <QDebug>
 
 const QStringList RecordingsModel::filters{
     "*.ogg",
@@ -33,39 +34,85 @@ void RecordingsModel::setRecorder(Recorder *recorder)
 
     if (mRecorder)
     {
-        disconnect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::onLocationChanged);
+        disconnect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::resetModel);
         disconnect(mRecorder, &Recorder::recursiveSearchChanged, this, &RecordingsModel::resetModel);
     }
 
     mRecorder = recorder;
-    connect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::onLocationChanged);
+    connect(mRecorder, &Recorder::locationChanged, this, &RecordingsModel::resetModel);
     connect(mRecorder, &Recorder::recursiveSearchChanged, this, &RecordingsModel::resetModel);
 
-    this->scanRecords();
+    this->resetModel();
 }
 
-void RecordingsModel::scanRecords()
+bool RecordingsModel::contains(const QString &filePath) const
+{
+    return mData.contains(QFileInfo(filePath));
+}
+
+void RecordingsModel::scanRecords(const QString &path)
 {
     Q_ASSERT(mRecorder);
+
+    // Current watching directories
+    auto currentDirs = mWatcher->directories();
+
+    // Is the recursive search enabled
+    auto recursiveSearch = mRecorder->recursiveSearch();
+
+    // Check if directory exists and add or remove it and
+    // its subdirectories to the wathing list
+    QDir dir(path);
+    QStringList paths(path);
+    if (dir.exists())
+    {
+        // Check for subdirectories that should be added
+        if (recursiveSearch)
+        {
+            QDirIterator it(path, QDir::Dirs, QDirIterator::Subdirectories);
+            while (it.hasNext())
+            {
+                paths << it.next();
+            }
+        }
+        mWatcher->addPaths(paths);
+    }
+    else
+    {
+        // Check for subdirectories that should be removed
+        for (auto d: currentDirs)
+        {
+            if (d.startsWith(path))
+            {
+                paths << d;
+            }
+        }
+        mWatcher->removePaths(paths);
+    }
 
     // Scan for updated and removed records
     for (int row = mData.size() - 1; row > -1; --row)
     {
         auto oldFileInfo = mData[row];
+        // Process entries only of the changed path
+        if (oldFileInfo.absolutePath() != path)
+        {
+            continue;
+        }
         QFileInfo newFileInfo(oldFileInfo);
         newFileInfo.refresh();
         if (newFileInfo.exists())
         {
-            // Update record
             if (newFileInfo.lastModified() != oldFileInfo.lastModified())
             {
+                // The record was updated
                 auto index = this->createIndex(row, 0);
                 emit this->dataChanged(index, index, { Modified });
             }
         }
         else
         {
-            // Remove record
+            // The record was removed
             this->beginRemoveRows(QModelIndex(), row, row);
             mData.removeAt(row);
             this->endRemoveRows();
@@ -73,49 +120,41 @@ void RecordingsModel::scanRecords()
     }
 
     // Scan for new records
-    auto flags = mRecorder->recursiveSearch() ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
-    QDirIterator it(mRecorder->location(), RecordingsModel::filters, QDir::Files, flags);
+    auto flags = recursiveSearch ? QDirIterator::Subdirectories : QDirIterator::NoIteratorFlags;
+    QDirIterator it(path, RecordingsModel::filters, QDir::Files, flags);
+    QFileInfoList newRecords;
     while (it.hasNext())
     {
         // Add a new record
         QFileInfo fileInfo(it.next());
-        if (mData.indexOf(fileInfo) == -1)
+        if (!mData.contains(fileInfo))
         {
-            auto pos = mData.size();
-            this->beginInsertRows(QModelIndex(), pos, pos);
-            mData.append(fileInfo);
-            this->endInsertRows();
+            newRecords << fileInfo;
         }
     }
-}
-
-void RecordingsModel::onLocationChanged()
-{
-    bool needSetPath = true;
-    auto dirs = mWatcher->directories();
-    auto newPath = mRecorder->location();
-    if (!dirs.empty())
+    if (!newRecords.empty())
     {
-        auto currentPath = dirs[0];
-        needSetPath = currentPath != newPath;
-        if (needSetPath)
-        {
-            mWatcher->removePath(currentPath);
-        }
-    }
-    if (needSetPath)
-    {
-        mWatcher->addPath(newPath);
-        this->resetModel();
+        auto pos = mData.size();
+        this->beginInsertRows(QModelIndex(), pos, pos + newRecords.size() - 1);
+        mData.append(newRecords);
+        this->endInsertRows();
     }
 }
 
 void RecordingsModel::resetModel()
 {
     this->beginResetModel();
+    auto currentDirs = mWatcher->directories();
+    if (!currentDirs.isEmpty())
+    {
+        mWatcher->removePaths(currentDirs);
+    }
     mData.clear();
-    this->scanRecords();
     this->endResetModel();
+    if (mRecorder)
+    {
+        this->scanRecords(mRecorder->location());
+    }
 }
 
 int RecordingsModel::rowCount(const QModelIndex &parent) const
@@ -166,6 +205,8 @@ QVariant RecordingsModel::data(const QModelIndex &index, int role) const
         return fileInfo.absoluteFilePath();
     case FileName:
         return fileInfo.fileName();
+    case FileDir:
+        return fileInfo.absolutePath();
     case Modified:
         return fileInfo.lastModified();
     default:
@@ -178,6 +219,7 @@ QHash<int, QByteArray> RecordingsModel::roleNames() const
     return {
         { FilePath, "filePath" },
         { FileName, "fileName" },
+        { FileDir,  "fileDir"  },
         { Modified, "modified" },
         { Section,  "section"  }
     };

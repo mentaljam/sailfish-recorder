@@ -7,7 +7,8 @@ ListItem {
         MenuItem {
             text: qsTr("Rename")
             onClicked: pageStack.push(Qt.resolvedUrl("../pages/RenameDialog.qml"), {
-                                          fileName: fileName
+                                          fileName: fileName,
+                                          fileDir: fileDir
                                       })
         }
 

@@ -17,6 +17,7 @@ public:
     {
         FilePath = Qt::UserRole,
         FileName,
+        FileDir,
         Modified,
         Section
     };
@@ -27,9 +28,10 @@ public:
     Recorder *recorder() const;
     void setRecorder(Recorder *recorder);
 
+    Q_INVOKABLE bool contains(const QString &filePath) const;
+
 private slots:
-    void scanRecords();
-    void onLocationChanged();
+    void scanRecords(const QString &path);
     void resetModel();
 
 private:
