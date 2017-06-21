@@ -123,12 +123,12 @@
         <translation>Имя папки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/NewDirectoryPage.qml" line="34"/>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="35"/>
         <source>Enter new directory name</source>
         <translation>Введите имя папки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/NewDirectoryPage.qml" line="36"/>
+        <location filename="../qml/pages/NewDirectoryPage.qml" line="37"/>
         <source>Directory already exists</source>
         <translation>Папка с таким именем уже существует</translation>
     </message>
@@ -149,12 +149,12 @@
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../qml/components/RecordingDelegate.qml" line="15"/>
+        <location filename="../qml/components/RecordingDelegate.qml" line="16"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../qml/components/RecordingDelegate.qml" line="17"/>
+        <location filename="../qml/components/RecordingDelegate.qml" line="18"/>
         <source>Deleting</source>
         <translation>Удаление</translation>
     </message>
@@ -162,52 +162,57 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="160"/>
+        <location filename="../src/recordingsmodel.cpp" line="184"/>
         <source>Older</source>
         <translation>Старше</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="158"/>
+        <location filename="../src/recordingsmodel.cpp" line="182"/>
         <source>Last 6 months</source>
         <translation>Последние полгода</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="154"/>
-        <source>Last month</source>
-        <translation>Последний месяц</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="150"/>
+        <location filename="../src/recordingsmodel.cpp" line="174"/>
         <source>This week</source>
         <translation>Эта неделя</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="146"/>
+        <location filename="../src/recordingsmodel.cpp" line="170"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="142"/>
+        <location filename="../src/recordingsmodel.cpp" line="166"/>
         <source>Today</source>
         <translation>Сегодня</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="178"/>
+        <source>This month</source>
+        <translation>Этот месяц</translation>
     </message>
 </context>
 <context>
     <name>RenameDialog</name>
     <message>
-        <location filename="../qml/pages/RenameDialog.qml" line="19"/>
+        <location filename="../qml/pages/RenameDialog.qml" line="22"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RenameDialog.qml" line="25"/>
+        <location filename="../qml/pages/RenameDialog.qml" line="28"/>
         <source>New filename</source>
         <translation>Новое имя файла</translation>
     </message>
     <message>
-        <location filename="../qml/pages/RenameDialog.qml" line="35"/>
+        <location filename="../qml/pages/RenameDialog.qml" line="42"/>
         <source>A file name must be specified</source>
         <translation>Необходимо указать имя файла</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/RenameDialog.qml" line="44"/>
+        <source>File already exists</source>
+        <translation>Файл с таким именем уже существует</translation>
     </message>
 </context>
 <context>
