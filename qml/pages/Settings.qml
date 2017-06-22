@@ -68,11 +68,17 @@ Page {
             }
 
             Button {
+                readonly property bool visible2: recorder.location !== recorder.defaultStoragePath
+
                 anchors.horizontalCenter: parent.horizontalCenter
+                height: visible2 ? Theme.itemSizeExtraSmall : 0.0
+                opacity: visible2 ? 1.0 : 0.0
                 text: qsTr("Set to default")
                 onClicked: Remorse.popupAction(page, qsTr("Applying"), function() {
                     recorder.location = recorder.defaultStoragePath
                 })
+
+                Behavior on height { NumberAnimation {} }
             }
 
             TextSwitch {
@@ -90,6 +96,7 @@ Page {
                 width: parent.width
                 label: qsTr("Codec")
                 currentIndex: recorder.codec
+                description: qsTr("Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.")
 
                 onCurrentItemChanged: recorder.codec = currentIndex
 
@@ -99,15 +106,6 @@ Page {
                     MenuItem { text: "PCM" }
                     MenuItem { text: "FLAC" }
                 }
-            }
-
-            Label {
-                text: qsTr("Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.")
-                wrapMode: Text.WordWrap
-                font.pixelSize: Theme.fontSizeExtraSmall
-                width: parent.width - Theme.horizontalPageMargin * 2
-                x: Theme.horizontalPageMargin
-                color: Theme.highlightColor
             }
 
             ComboBox {
