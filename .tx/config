@@ -1,0 +1,13 @@
+[main]
+host = https://www.transifex.com
+
+[harbour-recorder.harbour-recorder_ts]
+source_file = translations/harbour-recorder.ts
+source_lang = en
+type = QT
+file_filter = translations/harbour-recorder-<lang>.ts
+
+[harbour-recorder.harbour-recorder_desktop]
+source_file = harbour-recorder.desktop
+source_lang = en
+type = DESKTOP

@@ -162,32 +162,32 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="184"/>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
         <source>Older</source>
         <translation>Старше</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="182"/>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
         <source>Last 6 months</source>
         <translation>Последние полгода</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="174"/>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
         <source>This week</source>
         <translation>Эта неделя</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="170"/>
+        <location filename="../src/recordingsmodel.cpp" line="169"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="166"/>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
         <source>Today</source>
         <translation>Сегодня</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="178"/>
+        <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>Этот месяц</translation>
     </message>
@@ -233,53 +233,53 @@
         <translation>Каталог записей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="72"/>
+        <location filename="../qml/pages/Settings.qml" line="76"/>
         <source>Set to default</source>
         <translation>По умолчанию</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="73"/>
+        <location filename="../qml/pages/Settings.qml" line="77"/>
         <source>Applying</source>
         <translation>Применение</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="79"/>
+        <location filename="../qml/pages/Settings.qml" line="85"/>
         <source>Recursive Search</source>
         <translation>Рекурсивный поиск</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="80"/>
+        <location filename="../qml/pages/Settings.qml" line="86"/>
         <source>Search for recording files in subdirectories</source>
         <translation>Искать записи в подкаталогах</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="86"/>
-        <location filename="../qml/pages/Settings.qml" line="91"/>
+        <location filename="../qml/pages/Settings.qml" line="92"/>
+        <location filename="../qml/pages/Settings.qml" line="97"/>
         <source>Codec</source>
         <translation>Кодек</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="105"/>
+        <location filename="../qml/pages/Settings.qml" line="99"/>
         <source>Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.</source>
         <translation>Vorbis хорошо подходит для записи музыки, Speex – для речи. PCM и FLAC позволяют вести запись без потери качества.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="125"/>
+        <location filename="../qml/pages/Settings.qml" line="123"/>
         <source>Sample Rate</source>
         <translation>Частота дискретизации</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="131"/>
+        <location filename="../qml/pages/Settings.qml" line="129"/>
         <source>auto</source>
         <translation>Авто</translation>
     </message>
     <message>
+        <location filename="../qml/pages/Settings.qml" line="130"/>
+        <location filename="../qml/pages/Settings.qml" line="131"/>
         <location filename="../qml/pages/Settings.qml" line="132"/>
         <location filename="../qml/pages/Settings.qml" line="133"/>
         <location filename="../qml/pages/Settings.qml" line="134"/>
         <location filename="../qml/pages/Settings.qml" line="135"/>
-        <location filename="../qml/pages/Settings.qml" line="136"/>
-        <location filename="../qml/pages/Settings.qml" line="137"/>
         <source>%0kHz</source>
         <translation>%0 кГц</translation>
     </message>

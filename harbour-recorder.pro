@@ -31,7 +31,8 @@ OTHER_FILES += \
     rpm/harbour-recorder.spec \
     harbour-recorder.desktop \
     translations/*.ts \
-    qml/icons/*.png
+    qml/icons/*.png \
+    .tx/config
 
 QT +=\
     multimedia
