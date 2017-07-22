@@ -6,3 +6,6 @@ Icon=harbour-recorder
 Exec=harbour-recorder
 
 Name[ru]=Диктофон
+Name[sv]=Inspelare
+Name[it]=Registratore
+Name[es]=Grabadora
