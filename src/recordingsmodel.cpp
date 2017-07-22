@@ -3,7 +3,6 @@
 #include <QFileSystemWatcher>
 #include <QDirIterator>
 #include <QDateTime>
-#include <QDebug>
 
 const QStringList RecordingsModel::filters{
     "*.ogg",
