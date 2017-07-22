@@ -8,35 +8,41 @@
 #         - icon definition filename in desktop file must be changed
 TARGET = harbour-recorder
 
-CONFIG += sailfishapp
+CONFIG += \
+    sailfishapp \
+    sailfishapp_i18n
 
-appicons.path = /usr/share/icons/hicolor
-appicons.files = appicons/*
+SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
-INSTALLS += appicons
+HEADERS += \
+    src/recorder.h \
+    src/recordingsmodel.h \
+    src/directorymodel.h
 
-SOURCES += src/harbour-recorder.cpp \
-    src/codecsetting.cpp
+SOURCES += \
+    src/harbour-recorder.cpp \
+    src/recorder.cpp \
+    src/recordingsmodel.cpp \
+    src/directorymodel.cpp
 
 OTHER_FILES += \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    rpm/harbour-recorder.spec \
-    harbour-recorder.desktop \
-    qml/stop.png \
-    qml/record.png \
     qml/pages/Settings.qml \
     qml/harbour-recorder.qml \
-    qml/util/Popup.qml \
-    appicons/86x86/apps/harbour-recorder.png \
-    appicons/108x108/apps/harbour-recorder.png \
-    appicons/128x128/apps/harbour-recorder.png \
-    appicons/256x256/apps/harbour-recorder.png \
-    rpm/harbour-recorder.yaml.backup
-
-HEADERS += \
-    src/harbour-recorder.h \
-    src/codecsetting.h
+    qml/pages/RenameDialog.qml \
+    qml/pages/MigrationPage.qml \
+    qml/pages/LocationPage.qml \
+    qml/pages/NewDirectoryPage.qml \
+    qml/components/RecordingPlayer.qml \
+    qml/components/RecordingDelegate.qml \
+    rpm/harbour-recorder.spec \
+    harbour-recorder.desktop \
+    translations/*.ts \
+    qml/icons/*.png
 
 QT +=\
     multimedia
+
+TRANSLATIONS += \
+    translations/harbour-recorder-ru.ts

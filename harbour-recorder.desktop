@@ -4,3 +4,5 @@ X-Nemo-Application-Type=silica-qt5
 Name=Recorder
 Icon=harbour-recorder
 Exec=harbour-recorder
+
+Name[ru]=Диктофон

@@ -18,45 +18,75 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import harbour.recorder 1.0
 
 CoverBackground {
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: {
-            if(recorder.recordingState === 0) {
-                return "Record"
-            } else if(recorder.recordingState === 1) {
-                return "Stop";
-            } else if(recorder.recordingState === 2) {
-                return "Resume";
+
+    Column {
+        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width
+        spacing: Theme.paddingLarge
+
+        Label {
+            width: parent.width
+            font.pixelSize: Theme.fontSizeLarge
+            text: {
+                switch (recorder.state) {
+                case Recorder.StoppedState:
+                    return qsTr("Record")
+                case Recorder.RecordingState:
+                    return qsTr("Recording...")
+                case Recorder.PausedState:
+                    return qsTr("Paused")
+                default:
+                    return ""
+                }
             }
+            horizontalAlignment: Qt.AlignHCenter
+        }
+
+        Label {
+            width: parent.width
+            font.pixelSize: Theme.fontSizeSmall
+            text: recorder.state === Recorder.StoppedState ?
+                      "" : recorder.durationLabel
+            horizontalAlignment: Qt.AlignHCenter
         }
     }
 
-    CoverActionList {
-        id: coverAction
+    Loader {
+        id: actionLoader
+        sourceComponent: recorder.state === Recorder.StoppedState ?
+                             stoppedComponent : startedComponent
 
-        CoverAction {
-            iconSource: recorder.recordingState === 1 ? "image://theme/icon-cover-cancel" : "image://theme/icon-cover-new"
-            onTriggered: {
-                if(recorder.recordingState === 1) {
-                    recorder.stopRecording();
-                    timer.stop();
-                    time = 0;
-                } else if(recorder.recordingState === 0) {
-                    var msg = recorder.startRecording();
-                    if(msg === "recording") {
-                        timestamp = "0:00";
-                        timer.start();
-                    }
-                } else if(recorder.recordingState === 2) {
-                    recorder.resumeRecording();
-                    timer.start();
+        Component {
+            id: stoppedComponent
+
+            CoverActionList {
+                CoverAction {
+                    iconSource: "image://theme/icon-cover-new"
+                    onTriggered: recorder.startRecording()
+                }
+            }
+        }
+
+        Component {
+            id: startedComponent
+
+            CoverActionList {
+
+                CoverAction {
+                    iconSource: "image://theme/icon-cover-cancel"
+                    onTriggered: recorder.stop()
+                }
+
+                CoverAction {
+                    iconSource: recorder.state === Recorder.RecordingState ?
+                                    "image://theme/icon-cover-pause" : "image://theme/icon-cover-play"
+                    onTriggered: recorder.state === Recorder.RecordingState ?
+                                     recorder.pause() : recorder.record()
                 }
             }
         }
     }
 }
-
-
