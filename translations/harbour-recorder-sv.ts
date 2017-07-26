@@ -266,7 +266,7 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="123"/>
         <source>Sample Rate</source>
-        <translation>Frekvenshastighet</translation>
+        <translation>Samplingsfrekvens</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="129"/>

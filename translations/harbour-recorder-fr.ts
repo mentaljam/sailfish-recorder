@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es">
+<TS version="2.1" language="fr">
 <context>
     <name>CoverPage</name>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="36"/>
         <source>Record</source>
-        <translation>Grabar</translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="38"/>
         <source>Recording...</source>
-        <translation>Grabando...</translation>
+        <translation>Enregistrement ...</translation>
     </message>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="40"/>
         <source>Paused</source>
-        <translation>En pausa</translation>
+        <translation>En pause</translation>
     </message>
 </context>
 <context>
@@ -24,27 +24,27 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="64"/>
         <source>Recordings</source>
-        <translation>Grabaciones</translation>
+        <translation>Enregistrements</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="76"/>
         <source>Settings</source>
-        <translation>Ajustes</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="83"/>
         <source>Your recordings will be shown here</source>
-        <translation>Tus grabaciones se mostrarán aquí</translation>
+        <translation>Vos enregistrements apparaissent ici</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="167"/>
         <source>Recording...</source>
-        <translation>Grabando...</translation>
+        <translation>Enregistrement ...</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="177"/>
         <source>Paused</source>
-        <translation>En pausa</translation>
+        <translation>En pause</translation>
     </message>
 </context>
 <context>
@@ -52,40 +52,39 @@
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="71"/>
         <source>Current location</source>
-        <translation>Ubicación actual</translation>
+        <translation>Emplacement actuel</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
-        <translation>Home</translation>
+        <translation>Accueil</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="22"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>SD Card</source>
-        <translation>
-Tarjeta SD</translation>
+        <translation>Carte SD</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
         <source>Delete</source>
-        <translation>Borrar</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
-        <translation>Borrando</translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
         <source>New directory</source>
-        <translation>Nuevo directorio</translation>
+        <translation>Nouveau répertoire</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="96"/>
         <source>Apply</source>
-        <translation>Aplicar</translation>
+        <translation>Appliquer</translation>
     </message>
 </context>
 <context>
@@ -93,22 +92,22 @@ Tarjeta SD</translation>
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="7"/>
         <source>Migration failed, old recordings should still be in the old folder.</source>
-        <translation>La migración ha fallado, las grabaciones antiguas todavía están en la carpeta antigua.</translation>
+        <translation>La migration a échoué, les anciens enregistrements doivent toujours se trouver dans l&apos;emplacement d&apos;origine.</translation>
     </message>
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="9"/>
         <source>Migration finished</source>
-        <translation>Migración finalizada</translation>
+        <translation>Migration terminée</translation>
     </message>
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="17"/>
         <source>Migration</source>
-        <translation>Migración</translation>
+        <translation>Migration</translation>
     </message>
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="27"/>
         <source>The default folder has changed from &quot;%0&quot; to &quot;%1&quot;. Do you want to move existing recordings to the new folder? If you cancel the old directory will be kept.</source>
-        <translation>La carpeta por defecto ha cambiado de %0 a %1. ¿Deseas mover las grabaciones existentes a la nueva carpeta? Si le das a cancelar, el directorio antiguo se mantendrá.</translation>
+        <translation>Le répertoire par défaut a changé de &quot;%0&quot; à &quot;%1&quot;. Souhaitez-vous déplacer les anciens enregistrements vers le nouvel emplacement ? Si vous annulez, l&apos;ancien répertoire sera conservé.</translation>
     </message>
 </context>
 <context>
@@ -116,22 +115,22 @@ Tarjeta SD</translation>
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="19"/>
         <source>Create</source>
-        <translation>Crear</translation>
+        <translation>Créer</translation>
     </message>
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="25"/>
         <source>Directory name</source>
-        <translation>Nombre de directorio</translation>
+        <translation>Nom du répertoire</translation>
     </message>
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="35"/>
         <source>Enter new directory name</source>
-        <translation>Introduce nombre del nuevo directorio</translation>
+        <translation>Entrez le nom du nouveau répertoire</translation>
     </message>
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="37"/>
         <source>Directory already exists</source>
-        <translation>El directorio ya existe</translation>
+        <translation>Ce répertoire existe déjà</translation>
     </message>
 </context>
 <context>
@@ -139,7 +138,7 @@ Tarjeta SD</translation>
     <message>
         <location filename="../src/recorder.cpp" line="131"/>
         <source>recording</source>
-        <translation>grabando</translation>
+        <translation>enregistrement</translation>
     </message>
 </context>
 <context>
@@ -147,17 +146,17 @@ Tarjeta SD</translation>
     <message>
         <location filename="../qml/components/RecordingDelegate.qml" line="8"/>
         <source>Rename</source>
-        <translation>Renombrar</translation>
+        <translation>Renommer</translation>
     </message>
     <message>
         <location filename="../qml/components/RecordingDelegate.qml" line="16"/>
         <source>Delete</source>
-        <translation>Borrar</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../qml/components/RecordingDelegate.qml" line="18"/>
         <source>Deleting</source>
-        <translation>Borrando</translation>
+        <translation>Suppression</translation>
     </message>
 </context>
 <context>
@@ -165,32 +164,32 @@ Tarjeta SD</translation>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="183"/>
         <source>Older</source>
-        <translation>Más antiguos</translation>
+        <translation>Plus ancien</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="181"/>
         <source>Last 6 months</source>
-        <translation>Últimos 6 meses</translation>
+        <translation>6 derniers mois</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="173"/>
         <source>This week</source>
-        <translation>Esta semana</translation>
+        <translation>Cette semaine</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
         <source>Yesterday</source>
-        <translation>Ayer</translation>
+        <translation>Hier</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="165"/>
         <source>Today</source>
-        <translation>Hoy</translation>
+        <translation>Aujourd&apos;hui</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
-        <translation>Este mes</translation>
+        <translation>Ce mois</translation>
     </message>
 </context>
 <context>
@@ -198,22 +197,22 @@ Tarjeta SD</translation>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="22"/>
         <source>Rename</source>
-        <translation>Renombrar</translation>
+        <translation>Renommer</translation>
     </message>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="28"/>
         <source>New filename</source>
-        <translation>Nuevo nombre de fichero</translation>
+        <translation>Nouveau nom de fichier</translation>
     </message>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="42"/>
         <source>A file name must be specified</source>
-        <translation>Debe indicarse un nombre de fichero</translation>
+        <translation>Il faut indiquer un nouveau nom</translation>
     </message>
     <message>
         <location filename="../qml/pages/RenameDialog.qml" line="44"/>
         <source>File already exists</source>
-        <translation>El fichero ya existe</translation>
+        <translation>Ce fichier existe déjà</translation>
     </message>
 </context>
 <context>
@@ -221,59 +220,58 @@ Tarjeta SD</translation>
     <message>
         <location filename="../qml/pages/Settings.qml" line="57"/>
         <source>Settings</source>
-        <translation>Ajustes</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="61"/>
         <source>Location</source>
-        <translation>Ubicación</translation>
+        <translation>Emplacement</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="65"/>
         <source>Recordings Location</source>
-        <translation>
-Ubicación de grabaciones</translation>
+        <translation>Emplacement des enregistrements</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="76"/>
         <source>Set to default</source>
-        <translation>Ajuste por defecto</translation>
+        <translation>Défini par défaut</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="77"/>
         <source>Applying</source>
-        <translation>Aplicando</translation>
+        <translation>En cours</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="85"/>
         <source>Recursive Search</source>
-        <translation>Búsqueda recursiva</translation>
+        <translation>Recherche récursive</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="86"/>
         <source>Search for recording files in subdirectories</source>
-        <translation>Buscar ficheros de grabaciones en subdirectorios</translation>
+        <translation>Recherche d&apos;enregistrements dans les sous répertoires</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="92"/>
         <location filename="../qml/pages/Settings.qml" line="97"/>
         <source>Codec</source>
-        <translation>Códec</translation>
+        <translation>Codec</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="99"/>
         <source>Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.</source>
-        <translation>Vorbis es una buena opción para música. Speex es buena opción para voz. PCM y FLAC son formatos sin pérdidas.</translation>
+        <translation>Vorbis est adapté pour la musique. Speex est adapté pour la voix. PCM et FLAC sont des formats sans pertes.</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="123"/>
         <source>Sample Rate</source>
-        <translation>Frecuencia de muestreo</translation>
+        <translation>Taux d&apos;échantillonnage</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="129"/>
         <source>auto</source>
-        <translation>auto</translation>
+        <translation>Automatique</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="130"/>
@@ -291,7 +289,7 @@ Ubicación de grabaciones</translation>
     <message>
         <location filename="../qml/harbour-recorder.qml" line="55"/>
         <source>No space left on the device</source>
-        <translation>No queda espacio en el dispositivo</translation>
+        <translation>Plus d&apos;espace disponible sur l&apos;appareil</translation>
     </message>
 </context>
 </TS>
