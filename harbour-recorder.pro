@@ -38,6 +38,7 @@ QT +=\
     multimedia
 
 TRANSLATIONS += \
+    translations/harbour-recorder-el.ts \
     translations/harbour-recorder-es.ts \
     translations/harbour-recorder-fr.ts \
     translations/harbour-recorder-it.ts \
