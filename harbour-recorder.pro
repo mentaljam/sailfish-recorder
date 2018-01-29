@@ -41,6 +41,7 @@ TRANSLATIONS += \
     translations/harbour-recorder-el.ts \
     translations/harbour-recorder-es.ts \
     translations/harbour-recorder-fr.ts \
+    translations/harbour-recorder-hu.ts \
     translations/harbour-recorder-it.ts \
     translations/harbour-recorder-ru.ts \
     translations/harbour-recorder-sv.ts
