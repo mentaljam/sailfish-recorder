@@ -20,8 +20,7 @@ void DirectoryModel::setLocation(QString location)
     {
         mLocation = location;
         emit this->locationChanged();
-        // .mid(2) is required to remove "." and ".." entries
-        auto entries = QDir(location).entryList(QDir::Dirs, QDir::Name).mid(2);
+        auto entries = QDir(location).entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
         this->setStringList(entries);
     }
 }
