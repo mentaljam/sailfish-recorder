@@ -256,32 +256,42 @@ Ubicación de grabaciones</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="92"/>
-        <location filename="../qml/pages/Settings.qml" line="97"/>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="100"/>
+        <source>Volume of sound recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Settings.qml" line="108"/>
+        <location filename="../qml/pages/Settings.qml" line="113"/>
         <source>Codec</source>
         <translation>Códec</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="99"/>
+        <location filename="../qml/pages/Settings.qml" line="115"/>
         <source>Vorbis is a good choice for music. Speex is a good choice for speech. PCM and FLAC are both a lossless format.</source>
         <translation>Vorbis es una buena opción para música. Speex es buena opción para voz. PCM y FLAC son formatos sin pérdidas.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="123"/>
+        <location filename="../qml/pages/Settings.qml" line="139"/>
         <source>Sample Rate</source>
         <translation>Frecuencia de muestreo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="129"/>
+        <location filename="../qml/pages/Settings.qml" line="145"/>
         <source>auto</source>
         <translation>auto</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Settings.qml" line="130"/>
-        <location filename="../qml/pages/Settings.qml" line="131"/>
-        <location filename="../qml/pages/Settings.qml" line="132"/>
-        <location filename="../qml/pages/Settings.qml" line="133"/>
-        <location filename="../qml/pages/Settings.qml" line="134"/>
-        <location filename="../qml/pages/Settings.qml" line="135"/>
+        <location filename="../qml/pages/Settings.qml" line="146"/>
+        <location filename="../qml/pages/Settings.qml" line="147"/>
+        <location filename="../qml/pages/Settings.qml" line="148"/>
+        <location filename="../qml/pages/Settings.qml" line="149"/>
+        <location filename="../qml/pages/Settings.qml" line="150"/>
+        <location filename="../qml/pages/Settings.qml" line="151"/>
         <source>%0kHz</source>
         <translation>%0kHz</translation>
     </message>
