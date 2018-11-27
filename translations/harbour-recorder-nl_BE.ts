@@ -50,21 +50,16 @@
 <context>
     <name>LocationPage</name>
     <message>
-        <location filename="../qml/pages/LocationPage.qml" line="71"/>
-        <source>Current location</source>
-        <translation>Huidige locatie</translation>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>SD-kaart</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
         <translation>Persoonlijke map</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationPage.qml" line="22"/>
-        <location filename="../qml/pages/LocationPage.qml" line="79"/>
-        <source>SD Card</source>
-        <translation>SD-kaart</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
@@ -74,7 +69,12 @@
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
-        <translation>Word verwijderd</translation>
+        <translation>Wordt verwijderd</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>Huidige locatie</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../qml/pages/MigrationPage.qml" line="27"/>
         <source>The default folder has changed from &quot;%0&quot; to &quot;%1&quot;. Do you want to move existing recordings to the new folder? If you cancel the old directory will be kept.</source>
-        <translation>De standaardmap is gewijzigd van ‘%0’ naar ‘%1’. Wild ge de bestaande opnames naar de nieuwe map verplaatsen? Als ge annuleerd, zal de oude map behouden worden.</translation>
+        <translation>De standaardmap is gewijzigd van ‘%0’ naar ‘%1’. Wilt ge de bestaande opnames naar de nieuwe map verplaatsen? Als ge annuleert, zal de oude map behouden worden.</translation>
     </message>
 </context>
 <context>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="35"/>
         <source>Enter new directory name</source>
-        <translation>Voerd ne nieuwe mapnaam in</translation>
+        <translation>Voert ne nieuwe mapnaam in</translation>
     </message>
     <message>
         <location filename="../qml/pages/NewDirectoryPage.qml" line="37"/>
@@ -156,25 +156,15 @@
     <message>
         <location filename="../qml/components/RecordingDelegate.qml" line="18"/>
         <source>Deleting</source>
-        <translation>Word verwijderd</translation>
+        <translation>Wordt verwijderd</translation>
     </message>
 </context>
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="183"/>
-        <source>Older</source>
-        <translation>Ouder</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="181"/>
-        <source>Last 6 months</source>
-        <translation>Laatste 6 maanden</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="173"/>
-        <source>This week</source>
-        <translation>Deze week</translation>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
+        <source>Today</source>
+        <translation>Vandaag</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
@@ -182,14 +172,24 @@
         <translation>Gisteren</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="165"/>
-        <source>Today</source>
-        <translation>Vandaag</translation>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
+        <source>This week</source>
+        <translation>Deze week</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>Deze maand</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
+        <source>Last 6 months</source>
+        <translation>Laatste 6 maanden</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
+        <source>Older</source>
+        <translation>Ouder</translation>
     </message>
 </context>
 <context>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="77"/>
         <source>Applying</source>
-        <translation>Word toegepast</translation>
+        <translation>Wordt toegepast</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="85"/>
@@ -255,12 +255,12 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="92"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="100"/>
         <source>Volume of sound recording</source>
-        <translation type="unfinished"></translation>
+        <translation>Volume van geluidsopname</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="108"/>

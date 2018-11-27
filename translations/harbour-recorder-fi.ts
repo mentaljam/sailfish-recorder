@@ -50,21 +50,16 @@
 <context>
     <name>LocationPage</name>
     <message>
-        <location filename="../qml/pages/LocationPage.qml" line="71"/>
-        <source>Current location</source>
-        <translation>Äänitallenteiden nykyinen kohdekansio</translation>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>SD-muistikortti</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
         <translation>Koti</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationPage.qml" line="22"/>
-        <location filename="../qml/pages/LocationPage.qml" line="79"/>
-        <source>SD Card</source>
-        <translation>SD-muistikortti</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
@@ -75,6 +70,11 @@
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
         <translation>Poistaa</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>Äänitallenteiden nykyinen kohdekansio</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
@@ -138,7 +138,7 @@
     <message>
         <location filename="../src/recorder.cpp" line="130"/>
         <source>recording</source>
-        <translation>nauhoittaa</translation>
+        <translation>Äänitallenne</translation>
     </message>
 </context>
 <context>
@@ -162,19 +162,9 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="183"/>
-        <source>Older</source>
-        <translation>Vanhemmat</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="181"/>
-        <source>Last 6 months</source>
-        <translation>Viimeisen 6kk ajalta</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="173"/>
-        <source>This week</source>
-        <translation>Tällä viikolla</translation>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
+        <source>Today</source>
+        <translation>Tänään</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
@@ -182,14 +172,24 @@
         <translation>Eilen</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="165"/>
-        <source>Today</source>
-        <translation>Tänään</translation>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
+        <source>This week</source>
+        <translation>Tällä viikolla</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>Tässä kuussa</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
+        <source>Last 6 months</source>
+        <translation>Viimeisen 6kk ajalta</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
+        <source>Older</source>
+        <translation>Vanhemmat</translation>
     </message>
 </context>
 <context>
@@ -255,12 +255,12 @@
     <message>
         <location filename="../qml/pages/Settings.qml" line="92"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Äänenvoimakkuus</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="100"/>
         <source>Volume of sound recording</source>
-        <translation type="unfinished"></translation>
+        <translation>Nauhoittamisen äänenvoimakkuus</translation>
     </message>
     <message>
         <location filename="../qml/pages/Settings.qml" line="108"/>
