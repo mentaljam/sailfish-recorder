@@ -50,21 +50,16 @@
 <context>
     <name>LocationPage</name>
     <message>
-        <location filename="../qml/pages/LocationPage.qml" line="71"/>
-        <source>Current location</source>
-        <translation>Localização atual</translation>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>Cartão SD</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
         <translation>início</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationPage.qml" line="22"/>
-        <location filename="../qml/pages/LocationPage.qml" line="79"/>
-        <source>SD Card</source>
-        <translation>Cartão SD</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
@@ -75,6 +70,11 @@
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
         <translation>Apagando</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>Localização atual</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
@@ -162,19 +162,9 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="183"/>
-        <source>Older</source>
-        <translation>Mais velho</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="181"/>
-        <source>Last 6 months</source>
-        <translation>Últimos 6 meses</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="173"/>
-        <source>This week</source>
-        <translation>Esta semana</translation>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
+        <source>Today</source>
+        <translation>Hoje</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
@@ -182,14 +172,24 @@
         <translation>Ontem</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="165"/>
-        <source>Today</source>
-        <translation>Hoje</translation>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
+        <source>This week</source>
+        <translation>Esta semana</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>Este mês</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
+        <source>Last 6 months</source>
+        <translation>Últimos 6 meses</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
+        <source>Older</source>
+        <translation>Mais velho</translation>
     </message>
 </context>
 <context>

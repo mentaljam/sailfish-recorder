@@ -50,21 +50,16 @@
 <context>
     <name>LocationPage</name>
     <message>
-        <location filename="../qml/pages/LocationPage.qml" line="71"/>
-        <source>Current location</source>
-        <translation>Текущая папка</translation>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>SD карта</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
         <translation>Домашняя папка</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationPage.qml" line="22"/>
-        <location filename="../qml/pages/LocationPage.qml" line="79"/>
-        <source>SD Card</source>
-        <translation>SD карта</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
@@ -75,6 +70,11 @@
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
         <translation>Удаление</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>Текущая папка</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
@@ -162,19 +162,9 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="183"/>
-        <source>Older</source>
-        <translation>Старше</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="181"/>
-        <source>Last 6 months</source>
-        <translation>Последние полгода</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="173"/>
-        <source>This week</source>
-        <translation>Эта неделя</translation>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
+        <source>Today</source>
+        <translation>Сегодня</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
@@ -182,14 +172,24 @@
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="165"/>
-        <source>Today</source>
-        <translation>Сегодня</translation>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
+        <source>This week</source>
+        <translation>Эта неделя</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>Этот месяц</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
+        <source>Last 6 months</source>
+        <translation>Последние полгода</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
+        <source>Older</source>
+        <translation>Старше</translation>
     </message>
 </context>
 <context>

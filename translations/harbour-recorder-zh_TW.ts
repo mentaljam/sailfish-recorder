@@ -50,21 +50,16 @@
 <context>
     <name>LocationPage</name>
     <message>
-        <location filename="../qml/pages/LocationPage.qml" line="71"/>
-        <source>Current location</source>
-        <translation>目前設定的位置</translation>
+        <location filename="../qml/pages/LocationPage.qml" line="22"/>
+        <location filename="../qml/pages/LocationPage.qml" line="79"/>
+        <source>SD Card</source>
+        <translation>記憶卡</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="24"/>
         <location filename="../qml/pages/LocationPage.qml" line="79"/>
         <source>Home</source>
         <translation>Home</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/LocationPage.qml" line="22"/>
-        <location filename="../qml/pages/LocationPage.qml" line="79"/>
-        <source>SD Card</source>
-        <translation>記憶卡</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="39"/>
@@ -75,6 +70,11 @@
         <location filename="../qml/pages/LocationPage.qml" line="41"/>
         <source>Deleting</source>
         <translation>刪除中</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LocationPage.qml" line="71"/>
+        <source>Current location</source>
+        <translation>目前設定的位置</translation>
     </message>
     <message>
         <location filename="../qml/pages/LocationPage.qml" line="85"/>
@@ -162,19 +162,9 @@
 <context>
     <name>RecordingsModel</name>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="183"/>
-        <source>Older</source>
-        <translation>較舊的</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="181"/>
-        <source>Last 6 months</source>
-        <translation>最近6個月</translation>
-    </message>
-    <message>
-        <location filename="../src/recordingsmodel.cpp" line="173"/>
-        <source>This week</source>
-        <translation>本週</translation>
+        <location filename="../src/recordingsmodel.cpp" line="165"/>
+        <source>Today</source>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="169"/>
@@ -182,14 +172,24 @@
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../src/recordingsmodel.cpp" line="165"/>
-        <source>Today</source>
-        <translation>今天</translation>
+        <location filename="../src/recordingsmodel.cpp" line="173"/>
+        <source>This week</source>
+        <translation>本週</translation>
     </message>
     <message>
         <location filename="../src/recordingsmodel.cpp" line="177"/>
         <source>This month</source>
         <translation>本月</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="181"/>
+        <source>Last 6 months</source>
+        <translation>最近6個月</translation>
+    </message>
+    <message>
+        <location filename="../src/recordingsmodel.cpp" line="183"/>
+        <source>Older</source>
+        <translation>較舊的</translation>
     </message>
 </context>
 <context>
