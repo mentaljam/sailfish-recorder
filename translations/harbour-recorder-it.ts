@@ -136,7 +136,7 @@
 <context>
     <name>Recorder</name>
     <message>
-        <location filename="../src/recorder.cpp" line="130"/>
+        <location filename="../src/recorder.cpp" line="150"/>
         <source>recording</source>
         <translation>registrazione</translation>
     </message>
