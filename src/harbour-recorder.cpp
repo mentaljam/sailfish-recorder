@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 
     RecordingsModel sourceModel;
     sourceModel.setRecorder(&recorder);
+    recorder.setRecordingsModel(&sourceModel);
     QSortFilterProxyModel recordingsModel;
     recordingsModel.setSourceModel(&sourceModel);
     recordingsModel.setSortRole(RecordingsModel::Modified);

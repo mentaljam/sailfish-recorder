@@ -27,12 +27,12 @@ public:
 
     Recorder *recorder() const;
     void setRecorder(Recorder *recorder);
+    void resetModel();
 
     Q_INVOKABLE bool contains(const QString &filePath) const;
 
 private slots:
     void scanRecords(const QString &path);
-    void resetModel();
 
 private:
     static QString sectionName(const QDate &modDate);
