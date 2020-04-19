@@ -6,6 +6,8 @@
 
 #define FILE_LOCATION QStringLiteral("recorder/fileLocation")
 #define SAMPLE_RATE   QStringLiteral("recorder/samplerate")
+#define ENCOD_QUALITY QStringLiteral("recorder/encodingquality")
+#define ENCOD_MODE    QStringLiteral("recorder/encodingmode")
 #define MIGRATE1      QStringLiteral("recorder/migrate-1")
 #define CODEC         QStringLiteral("recorder/codecindex")
 #define RECURSIVE     QStringLiteral("recorder/recursiveSearch")
@@ -76,6 +78,42 @@ void Recorder::setSampleRate(const int &sampleRate)
     }
 }
 
+QMultimedia::EncodingQuality Recorder::encodingQuality() const
+{
+    auto quality = settings.value(ENCOD_QUALITY, QMultimedia::HighQuality).toInt();
+    return static_cast<QMultimedia::EncodingQuality>(quality);
+}
+
+void Recorder::setEncodingQuality(QMultimedia::EncodingQuality quality)
+{
+    if (   quality < QMultimedia::VeryLowQuality
+        || quality > QMultimedia::VeryHighQuality
+        || this->encodingQuality() == quality)
+    {
+        return;
+    }
+    settings.setValue(ENCOD_QUALITY, quality);
+    emit this->encodingQualityChanged();
+}
+
+QMultimedia::EncodingMode Recorder::encodingMode() const
+{
+    auto mode = settings.value(ENCOD_MODE, QMultimedia::TwoPassEncoding).toInt();
+    return static_cast<QMultimedia::EncodingMode>(mode);
+}
+
+void Recorder::setEncodingMode(QMultimedia::EncodingMode &mode)
+{
+    if (   mode < QMultimedia::ConstantQualityEncoding
+        || mode > QMultimedia::TwoPassEncoding
+        || this->encodingMode() == mode)
+    {
+        return;
+    }
+    settings.setValue(ENCOD_MODE, mode);
+    emit this->encodingModeChanged();
+}
+
 Recorder::Codec Recorder::codec() const
 {
     return static_cast<Recorder::Codec>(settings.value(CODEC, FLAC).toInt());
@@ -139,8 +177,8 @@ void Recorder::startRecording()
     CodecSetting codec = codecSettingsMap[this->codec()];
 
     encoderSettings.setCodec(codec.codec);
-    encoderSettings.setEncodingMode(QMultimedia::TwoPassEncoding);
-    encoderSettings.setQuality(QMultimedia::HighQuality);
+    encoderSettings.setEncodingMode(this->encodingMode());
+    encoderSettings.setQuality(this->encodingQuality());
 
     int selectedSampleRate = this->sampleRate();
     if (selectedSampleRate != 0)

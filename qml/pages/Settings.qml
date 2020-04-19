@@ -48,8 +48,10 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
+        contentHeight: column.height
 
         Column {
+            id: column
             width: parent.width
             spacing: Theme.paddingMedium
 
@@ -121,6 +123,48 @@ Page {
                     MenuItem { text: "Speex" }
                     MenuItem { text: "PCM" }
                     MenuItem { text: "FLAC" }
+                }
+            }
+
+            ComboBox {
+                width: parent.width
+                label: qsTr("Encoding Quality")
+                currentIndex: recorder.encodingQuality
+
+                onCurrentItemChanged: recorder.encodingQuality = currentIndex
+
+                menu: ContextMenu {
+                    MenuItem { text: qsTr("Very low") }
+                    MenuItem { text: qsTr("Low") }
+                    MenuItem { text: qsTr("Normal") }
+                    MenuItem { text: qsTr("High") }
+                    MenuItem { text: qsTr("Very high") }
+                }
+            }
+
+            ComboBox {
+                width: parent.width
+                label: qsTr("Encoding Mode")
+                description: {
+                    switch (currentIndex) {
+                        case 0:  return qsTr("Constant quality with adjusted bit rate to fit.")
+                        case 1:  return qsTr("Constant bit rate with adjusted quality to fit.")
+                        case 2:  return qsTr("Variable bit rate with fixed average value.")
+                        case 3:  return qsTr("Process the recording at first to determine its characteristics, \
+and then process a second time to allocate more bits to the areas that need it.")
+                        default: return ""
+                    }
+                }
+
+                currentIndex: recorder.encodingMode
+
+                onCurrentItemChanged: recorder.encodingMode = currentIndex
+
+                menu: ContextMenu {
+                    MenuItem { text: qsTr("Constant quality") }
+                    MenuItem { text: qsTr("Constant bit rate") }
+                    MenuItem { text: qsTr("Average bit rate") }
+                    MenuItem { text: qsTr("Two pass encoding") }
                 }
             }
 

@@ -12,6 +12,8 @@ class Recorder : public QAudioRecorder
     Q_OBJECT
     Q_PROPERTY(QString location READ location WRITE setLocation NOTIFY locationChanged)
     Q_PROPERTY(int sampleRate READ sampleRate WRITE setSampleRate NOTIFY sampleRateChanged)
+    Q_PROPERTY(QMultimedia::EncodingQuality encodingQuality READ encodingQuality WRITE setEncodingQuality NOTIFY encodingQualityChanged)
+    Q_PROPERTY(QMultimedia::EncodingMode encodingMode READ encodingMode WRITE setEncodingMode NOTIFY encodingModeChanged)
     Q_PROPERTY(Recorder::Codec codec READ codec WRITE setCodec NOTIFY codecChanged)
     Q_PROPERTY(QString durationLabel READ durationLabel NOTIFY durationLabelChanged)
     Q_PROPERTY(bool recursiveSearch READ recursiveSearch WRITE setRecursiveSearch NOTIFY recursiveSearchChanged)
@@ -43,6 +45,12 @@ public:
     int sampleRate() const;
     void setSampleRate(const int &sampleRate);
 
+    QMultimedia::EncodingQuality encodingQuality() const;
+    void setEncodingQuality(QMultimedia::EncodingQuality quality);
+
+    QMultimedia::EncodingMode encodingMode() const;
+    void setEncodingMode(QMultimedia::EncodingMode &mode);
+
     Recorder::Codec codec() const;
     void setCodec(const Codec &codec);
 
@@ -62,6 +70,8 @@ signals:
     void pathCreationFailed();
     void locationChanged();
     void sampleRateChanged();
+    void encodingQualityChanged();
+    void encodingModeChanged();
     void codecChanged();
     void durationLabelChanged();
     void recursiveSearchChanged();
