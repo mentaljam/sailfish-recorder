@@ -77,17 +77,8 @@ signals:
     void recursiveSearchChanged();
 
 private:
-
-    struct CodecSetting
-    {
-        QString codec;
-        QString extension;
-        QString container;
-    };
-
     static const QString defaultStoragePath;
 
-    QHash<Codec, CodecSetting> codecSettingsMap;
     RecordingsModel *mRecordingsModel;
     QSettings settings;
     QString mSdCardPath;

@@ -4,6 +4,8 @@
 #include <QDateTime>
 #include <QUrl>
 
+#include <tuple>
+
 #define FILE_LOCATION QStringLiteral("recorder/fileLocation")
 #define SAMPLE_RATE   QStringLiteral("recorder/samplerate")
 #define ENCOD_QUALITY QStringLiteral("recorder/encodingquality")
@@ -16,13 +18,7 @@
 const QString Recorder::defaultStoragePath = QDir::homePath().append("/Documents/Recordings");
 
 Recorder::Recorder(QObject *parent) :
-    QAudioRecorder(parent),
-    codecSettingsMap{
-        { Vorbis, {"audio/vorbis", ".ogg",  "ogg"} },
-        { Speex,  {"audio/speex",  ".oga",  "ogg"} },
-        { PCM,    {"audio/PCM",    ".wav",  "wav"} },
-        { FLAC,   {"audio/FLAC",   ".flac", "raw"} }
-    }
+    QAudioRecorder(parent)
 {
     this->setAudioInput("pulseaudio:");
     connect(this, &Recorder::durationChanged, this, &Recorder::durationLabelChanged);
@@ -154,6 +150,22 @@ QString Recorder::formatTime(const qint64 &msec)
             .toString(QStringLiteral("HH:mm:ss"));
 }
 
+std::tuple<QString, QString, QString> codecProps(Recorder::Codec codec)
+{
+    switch (codec) {
+    case Recorder::Vorbis:
+        return std::make_tuple(QStringLiteral("audio/vorbis"), QStringLiteral(".ogg"),  QStringLiteral("ogg"));
+    case Recorder::Speex:
+        return std::make_tuple(QStringLiteral("audio/speex"),  QStringLiteral(".oga"),  QStringLiteral("ogg"));
+    case Recorder::PCM:
+        return std::make_tuple(QStringLiteral("audio/PCM"),    QStringLiteral(".wav"),  QStringLiteral("wav"));
+    case Recorder::FLAC:
+        return std::make_tuple(QStringLiteral("audio/FLAC"),   QStringLiteral(".flac"), QStringLiteral("raw"));
+    default:
+        Q_UNREACHABLE();
+    }
+}
+
 void Recorder::startRecording()
 {
     if(this->state() != QMediaRecorder::StoppedState)
@@ -174,9 +186,10 @@ void Recorder::startRecording()
 
     QAudioEncoderSettings encoderSettings;
 
-    CodecSetting codec = codecSettingsMap[this->codec()];
+    QString codec, extension, container;
+    std::tie(codec, extension, container) = codecProps(this->codec());
 
-    encoderSettings.setCodec(codec.codec);
+    encoderSettings.setCodec(codec);
     encoderSettings.setEncodingMode(this->encodingMode());
     encoderSettings.setQuality(this->encodingQuality());
 
@@ -188,11 +201,11 @@ void Recorder::startRecording()
 
     auto fileName = location.absoluteFilePath(tr("recording")
                         .append(QDateTime::currentDateTime().toString("-yyyyMMddHHmmss"))
-                        .append(codec.extension));
+                        .append(extension));
 
     this->setEncodingSettings(encoderSettings);
     this->setOutputLocation(QUrl(fileName));
-    this->setContainerFormat(codec.container);
+    this->setContainerFormat(container);
 
     this->record();
 }
