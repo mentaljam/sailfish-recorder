@@ -1,5 +1,5 @@
 #include "recorder.h"
-#include "recordingsmodel.h"
+
 #include <QDir>
 #include <QDateTime>
 #include <QUrl>
@@ -29,21 +29,6 @@ Recorder::Recorder(QObject *parent) :
     {
         mSdCardPath = media.absoluteFilePath(mediaEntries.first());
     }
-}
-
-RecordingsModel *Recorder::recordingsModel() const
-{
-    return mRecordingsModel;
-}
-
-void Recorder::setRecordingsModel(RecordingsModel *recordingsModel)
-{
-    if (mRecordingsModel == recordingsModel)
-    {
-        return;
-    }
-
-    mRecordingsModel = recordingsModel;
 }
 
 QString Recorder::location() const
@@ -175,12 +160,13 @@ void Recorder::startRecording()
 
     QDir location(this->location());
     if(!location.exists()) {
-        if (!location.mkpath(".")) {
-            emit this->pathCreationFailed();
+        if (location.mkpath("."))
+        {
+            emit this->locationChanged();
         }
-        else {
-            // Reset the model after path creation to show the new file.
-            this->recordingsModel()->resetModel();
+        else
+        {
+            emit this->pathCreationFailed();
         }
     }
 

@@ -5,8 +5,6 @@
 #include <QSettings>
 #include <QSortFilterProxyModel>
 
-class RecordingsModel;
-
 class Recorder : public QAudioRecorder
 {
     Q_OBJECT
@@ -32,9 +30,6 @@ public:
     Q_ENUM(Codec)
 
     explicit Recorder(QObject* parent = 0);
-
-    RecordingsModel *recordingsModel() const;
-    void setRecordingsModel(RecordingsModel *recordingsModel);
 
     Q_INVOKABLE bool shouldMigrate() const;
     Q_INVOKABLE bool migrate();
@@ -79,7 +74,6 @@ signals:
 private:
     static const QString defaultStoragePath;
 
-    RecordingsModel *mRecordingsModel;
     QSettings settings;
     QString mSdCardPath;
 };
