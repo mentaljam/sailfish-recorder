@@ -31,9 +31,6 @@ public:
 
     explicit Recorder(QObject* parent = 0);
 
-    Q_INVOKABLE bool shouldMigrate() const;
-    Q_INVOKABLE bool migrate();
-
     QString location() const;
     void setLocation(const QString &);
 

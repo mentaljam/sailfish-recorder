@@ -23,7 +23,6 @@ OTHER_FILES += \
     qml/pages/Settings.qml \
     qml/harbour-recorder.qml \
     qml/pages/RenameDialog.qml \
-    qml/pages/MigrationPage.qml \
     qml/pages/LocationPage.qml \
     qml/pages/NewDirectoryPage.qml \
     qml/components/RecordingPlayer.qml \

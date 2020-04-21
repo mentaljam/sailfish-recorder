@@ -26,18 +26,6 @@ Page {
     id: page
     allowedOrientations: Orientation.All
 
-    Timer {
-        id: migrateTimer
-        interval: 1000
-        running: true
-        repeat: false
-        onTriggered: {
-            if (recorder.shouldMigrate()) {
-                pageStack.push(Qt.resolvedUrl("MigrationPage.qml"))
-            }
-        }
-    }
-
     RecordingPlayer {
         id: player
     }

@@ -10,7 +10,7 @@
 #define SAMPLE_RATE   QStringLiteral("recorder/samplerate")
 #define ENCOD_QUALITY QStringLiteral("recorder/encodingquality")
 #define ENCOD_MODE    QStringLiteral("recorder/encodingmode")
-#define MIGRATE1      QStringLiteral("recorder/migrate-1")
+//#define MIGRATE1      QStringLiteral("recorder/migrate-1")
 #define CODEC         QStringLiteral("recorder/codecindex")
 #define RECURSIVE     QStringLiteral("recorder/recursiveSearch")
 
@@ -194,41 +194,6 @@ void Recorder::startRecording()
     this->setContainerFormat(container);
 
     this->record();
-}
-
-bool Recorder::shouldMigrate() const
-{
-    if (settings.value(MIGRATE1, false).toBool())
-    {
-        return false;
-    }
-
-    auto oldStoragePath = QDir::homePath().append("/Recordings");
-
-    if (this->location() != oldStoragePath)
-    {
-        // The user has set up a custom folder, don't run the migration
-        return false;
-    }
-
-    // If the old directory exists, migrate the files.
-    return QDir(oldStoragePath).exists();
-}
-
-bool Recorder::migrate()
-{
-    auto oldStoragePath = QDir::homePath().append("/Recordings");
-
-    bool result = QDir().rename(oldStoragePath, Recorder::defaultStoragePath);
-
-    if (result)
-    {
-        settings.setValue(MIGRATE1, true);
-        settings.setValue(FILE_LOCATION, Recorder::defaultStoragePath);
-        emit this->locationChanged();
-    }
-
-    return result;
 }
 
 void Recorder::removeFile(const QString &filePath)
