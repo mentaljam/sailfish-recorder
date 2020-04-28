@@ -17,7 +17,7 @@ Version:    0.7.0
 Release:    1
 Group:      Qt/Qt
 License:    GNU GENERAL PUBLIC LICENSE
-URL:        http://corne.info/
+URL:        https://github.com/mentaljam/sailfish-recorder
 Source0:    %{name}-%{version}.tar.bz2
 Requires:   sailfishsilica-qt5 >= 0.10.9
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10

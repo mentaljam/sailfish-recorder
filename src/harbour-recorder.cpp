@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
     auto app = SailfishApp::application(argc, argv);
 
     QCoreApplication::setOrganizationName("harbour-recorder");
-    QCoreApplication::setOrganizationDomain("www.corne.info");
     QCoreApplication::setApplicationName("Recorder");
 
     auto view = SailfishApp::createView();
