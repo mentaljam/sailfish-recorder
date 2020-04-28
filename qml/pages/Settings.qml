@@ -98,7 +98,7 @@ Page {
                 width: parent.width
                 minimumValue: 0.0
                 maximumValue: 1.0
-                valueText: Math.round(value * 100).toLocaleString() + "%"
+                valueText: qsTr("%1%").arg(Math.round(value * 100).toLocaleString())
                 label: qsTr("Volume of sound recording")
 
                 onValueChanged: recorder.volume = value
