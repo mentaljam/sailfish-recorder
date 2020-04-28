@@ -3,6 +3,7 @@
 #include <QFileSystemWatcher>
 #include <QDirIterator>
 #include <QDateTime>
+#include <QMimeDatabase>
 
 const QStringList RecordingsModel::filters{
     "*.ogg",
@@ -209,6 +210,8 @@ QVariant RecordingsModel::data(const QModelIndex &index, int role) const
         return fileInfo.lastModified();
     case Section:
         return RecordingsModel::sectionName(fileInfo.lastModified().date());
+    case MimeType:
+        return QMimeDatabase().mimeTypeForFile(fileInfo.absoluteFilePath()).name();
     default:
         return QVariant();
     }
@@ -221,6 +224,7 @@ QHash<int, QByteArray> RecordingsModel::roleNames() const
         { FileName, "fileName" },
         { FileDir,  "fileDir"  },
         { Modified, "modified" },
-        { Section,  "section"  }
+        { Section,  "section"  },
+        { MimeType, "mimeType" },
     };
 }

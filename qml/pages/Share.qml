@@ -23,24 +23,22 @@ import QtMultimedia 5.0
 
 
 Page {
+    property string title
+    property alias path: shareMethodList.source
+    property alias filter: transferMethodsModel.filter
+
     id: sharePage
-    property string title;
-    property string path;
+
+    SailfishTransferMethodsModel {
+        id: transferMethodsModel
+    }
 
     ShareMethodList {
         id: shareMethodList
-        objectName: "shareMethodList"
-
-        model: SailfishTransferMethodsModel {
-            id: transferMethodsModel;
-            filter: "audio/ogg";
-        }
-        source: sharePage.path;
+        model: transferMethodsModel
 
         header: PageHeader {
-            title: sharePage.title;
+            title: sharePage.title
         }
-
-
     }
 }

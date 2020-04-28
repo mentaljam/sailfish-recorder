@@ -19,7 +19,8 @@ public:
         FileName,
         FileDir,
         Modified,
-        Section
+        Section,
+        MimeType,
     };
     Q_ENUM(Roles)
 

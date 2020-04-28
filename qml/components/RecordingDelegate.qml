@@ -25,7 +25,8 @@ ListItem {
             text: qsTr("Share")
             onClicked: pageStack.push(Qt.resolvedUrl("../pages/Share.qml"), {
                                           title: fileName,
-                                          path: filePath
+                                          path: filePath,
+                                          filter: mimeType
                                       })
         }
     }
