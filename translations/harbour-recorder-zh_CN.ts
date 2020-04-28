@@ -5,11 +5,11 @@
     <name>CoverPage</name>
     <message>
         <source>Record</source>
-        <translation>录制</translation>
+        <translation>录音</translation>
     </message>
     <message>
         <source>Recording...</source>
-        <translation>录制中......</translation>
+        <translation>正在录音......</translation>
     </message>
     <message>
         <source>Paused</source>
@@ -131,7 +131,7 @@
     </message>
     <message>
         <source>Last 6 months</source>
-        <translation>过去六月</translation>
+        <translation>过去六个月</translation>
     </message>
     <message>
         <source>Older</source>
@@ -205,63 +205,63 @@
     </message>
     <message>
         <source>Encoding Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>编码质量</translation>
     </message>
     <message>
         <source>Very low</source>
-        <translation type="unfinished"></translation>
+        <translation>极低</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>低</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>高</translation>
     </message>
     <message>
         <source>Very high</source>
-        <translation type="unfinished"></translation>
+        <translation>非常高</translation>
     </message>
     <message>
         <source>Encoding Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>编码模式</translation>
     </message>
     <message>
         <source>Constant quality with adjusted bit rate to fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>恒定质量，可调整比特率以适应。</translation>
     </message>
     <message>
         <source>Constant bit rate with adjusted quality to fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>恒定比特率，可调整质量以适应。</translation>
     </message>
     <message>
         <source>Variable bit rate with fixed average value.</source>
-        <translation type="unfinished"></translation>
+        <translation>比特率可变，平均值固定。</translation>
     </message>
     <message>
         <source>Process the recording at first to determine its characteristics, and then process a second time to allocate more bits to the areas that need it.</source>
-        <translation type="unfinished"></translation>
+        <translation>对录音进行第一次处理，确定其特性；然后进行第二次处理，将更多的比特分配给需要的区域。</translation>
     </message>
     <message>
         <source>Constant quality</source>
-        <translation type="unfinished"></translation>
+        <translation>恒定质量</translation>
     </message>
     <message>
         <source>Constant bit rate</source>
-        <translation type="unfinished"></translation>
+        <translation>恒定比特率</translation>
     </message>
     <message>
         <source>Average bit rate</source>
-        <translation type="unfinished"></translation>
+        <translation>平均比特率</translation>
     </message>
     <message>
         <source>Two pass encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>两步编码</translation>
     </message>
     <message>
         <source>Sample Rate</source>

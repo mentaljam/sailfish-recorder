@@ -205,63 +205,63 @@
     </message>
     <message>
         <source>Encoding Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Krypteringskvalitet</translation>
     </message>
     <message>
         <source>Very low</source>
-        <translation type="unfinished"></translation>
+        <translation>Mycket låg</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>Låg</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög</translation>
     </message>
     <message>
         <source>Very high</source>
-        <translation type="unfinished"></translation>
+        <translation>Mycket hög</translation>
     </message>
     <message>
         <source>Encoding Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Krypteringsläge</translation>
     </message>
     <message>
         <source>Constant quality with adjusted bit rate to fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konstant kvalitet med anpassad bithastighet</translation>
     </message>
     <message>
         <source>Constant bit rate with adjusted quality to fit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konstant bithastighet med anpassad kvalitet</translation>
     </message>
     <message>
         <source>Variable bit rate with fixed average value.</source>
-        <translation type="unfinished"></translation>
+        <translation>Variabel bithastighet med fixerat medelvärde</translation>
     </message>
     <message>
         <source>Process the recording at first to determine its characteristics, and then process a second time to allocate more bits to the areas that need it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeta först inspelningen, för att bestämma dess egenskaper och bearbeta sedan en andra gång, för att fördela fler bitar till de områden som behöver dem.</translation>
     </message>
     <message>
         <source>Constant quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Konstant kvalitet</translation>
     </message>
     <message>
         <source>Constant bit rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Konstant bithastighet</translation>
     </message>
     <message>
         <source>Average bit rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Medel bithastighet</translation>
     </message>
     <message>
         <source>Two pass encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>2-passkryptering</translation>
     </message>
     <message>
         <source>Sample Rate</source>

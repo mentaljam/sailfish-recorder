@@ -205,7 +205,7 @@
     </message>
     <message>
         <source>Encoding Quality</source>
-        <translation>Äänityksen laatu</translation>
+        <translation>Koodauksen laatu</translation>
     </message>
     <message>
         <source>Very low</source>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>Encoding Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Koodaustila</translation>
     </message>
     <message>
         <source>Constant quality with adjusted bit rate to fit.</source>
@@ -241,7 +241,7 @@
     </message>
     <message>
         <source>Variable bit rate with fixed average value.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihteleva tavun nopeus kiinteällä keskiarvolla.</translation>
     </message>
     <message>
         <source>Process the recording at first to determine its characteristics, and then process a second time to allocate more bits to the areas that need it.</source>
