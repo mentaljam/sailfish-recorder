@@ -28,6 +28,7 @@ OTHER_FILES += \
     qml/components/RecordingPlayer.qml \
     qml/components/RecordingDelegate.qml \
     rpm/harbour-recorder.spec \
+    rpm/harbour-recorder.changes \
     harbour-recorder.desktop \
     translations/*.ts \
     qml/icons/*.png \

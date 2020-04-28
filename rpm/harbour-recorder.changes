@@ -1,0 +1,61 @@
+* Tue Apr 28 2020 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.7.1
+- Add German translation and update other translations
+- Add more recording options
+- Code cleanup and refactoring
+
+* Sat Jan  4 2020 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.6.3
+- Reset the recordings model after creating the directory to fix recordings not showed on the first run
+
+* Sun Nov 11 2018 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.6.0
+- Add option to set the recording volume
+
+* Fri Jul 13 2018 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.5.6
+- Add more supported languages: Greek, Hungarian, Dutch, Portuguese (Brazil), Finnish, Dutch (Belgium) and Chinese (Taiwan)
+- Code refactoring
+
+* Wed Jul 26 2017 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.5.2
+- Add multilingual support (add French, Italian, Russian, Spanish and Swedish translations)
+- Show more actions and recording duration label on cover page
+- Block recordings list while recording
+- Use native notification API
+- Fix packaging rules (do not install unnecessary files)
+- A better rename dialogue (show a file name without an extension, add a placeholder text)
+- Improve recordings list (an option for a recursive search for recordings which is disabled by default, update recordings view on recordings location changed)
+- Set recordings location with a simple directory picker
+- Code refactoring
+
+* Fri May 27 2016 Corné Dorrestijn <contact@corne.info> 0.4.0
+- Added pause button and seek bar to player
+- Added option to change sample rate
+- Made the stop/pause button a bit clearer
+
+* Wed Oct 21 2015 Corné Dorrestijn <contact@corne.info> 0.3.0
+- Changed default folder to ~/Documents/Recordings
+- Added migration wizard
+
+* Fri Oct 16 2015 Corné Dorrestijn <contact@corne.info> 0.2.6
+- Added support for landscape orientation
+- Added hires icons
+
+* Mon May 11 2015 Corné Dorrestijn <contact@corne.info> 0.2.5
+- Changed file extension from .spx to .oga for better media player support.
+- Fixed spelling in the settings page.
+
+* Mon Sep  1 2014 Corné Dorrestijn <contact@corne.info> 0.2.4
+- Change config folder to harbour-recorder
+- Recordings are now put in the right container.
+
+* Thu May  1 2014 Corné Dorrestijn <contact@corne.info> 0.2.2
+- Rename files
+- Change codec in settings menu
+- Stop recording delayed 1 sec to prevent missing the last second (as a workaround for now)
+
+* Mon Mar 31 2014 Corné Dorrestijn <contact@corne.info> 0.2.1
+- Removed placeholder menu item
+
+* Sun Mar 30 2014 Corné Dorrestijn <contact@corne.info> 0.2.0
+- New UI
+- Pause recording
+- List of recordings in same folder
+- Play previous recordings
+- Delete recordings
