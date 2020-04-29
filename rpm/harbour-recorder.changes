@@ -1,3 +1,7 @@
+* Wed Apr 29 2020 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.7.2-orn1
+- Merge branch "share" to implement share functionality
+- Release a separate RPM for OpenRepos with share functionality
+
 * Tue Apr 28 2020 Petr Tsymbarovich <petr@tsymbarovich.ru> 0.7.1
 - Add German translation and update other translations
 - Add more recording options

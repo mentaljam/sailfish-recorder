@@ -13,8 +13,8 @@ Name:       harbour-recorder
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Recorder
-Version:    0.7.1
-Release:    1
+Version:    0.7.2
+Release:    orn1
 Group:      Qt/Qt
 License:    GNU GENERAL PUBLIC LICENSE
 URL:        https://github.com/mentaljam/sailfish-recorder
