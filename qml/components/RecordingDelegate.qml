@@ -13,21 +13,19 @@ ListItem {
         }
 
         MenuItem {
-            text: qsTr("Delete")
-            onClicked: {
-                remorseAction(qsTr("Deleting"), function() {
-                    recorder.removeFile(filePath)
-                })
-            }
-        }
-
-        MenuItem {
             text: qsTr("Share")
             onClicked: pageStack.push(Qt.resolvedUrl("../pages/Share.qml"), {
                                           title: fileName,
                                           path: filePath,
                                           filter: mimeType
                                       })
+        }
+
+        MenuItem {
+            text: qsTr("Delete")
+            onClicked: remorseAction(qsTr("Deleting"), function() {
+                recorder.removeFile(filePath)
+            })
         }
     }
 
