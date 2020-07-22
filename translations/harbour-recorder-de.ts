@@ -100,7 +100,7 @@
     <name>RecordingDelegate</name>
     <message>
         <source>Rename</source>
-        <translation>Umgenennen</translation>
+        <translation>Umbenennen</translation>
     </message>
     <message>
         <source>Delete</source>
